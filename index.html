@@ -748,6 +748,11 @@ body.dark .mz-addbtn{background:var(--panel);color:#32d74b;border-color:color-mi
 .daily-subtask input[type=checkbox]:not(:checked){background:transparent;border:2px solid #fff}
 .daily-task input[type=checkbox]:not(:checked):hover,
 .daily-subtask input[type=checkbox]:not(:checked):hover{border-color:#fff}
+/* Light mode only: dark theme-colored checkbox border (dark mode keeps white) */
+body:not(.dark) .daily-task input[type=checkbox]:not(:checked),
+body:not(.dark) .daily-subtask input[type=checkbox]:not(:checked),
+body:not(.dark) .daily-task input[type=checkbox]:not(:checked):hover,
+body:not(.dark) .daily-subtask input[type=checkbox]:not(:checked):hover{border-color:var(--text)}
 /* Today tasks: smaller circular checkbox aligned to the top of the row */
 .daily-task input[type=checkbox]{width:17px;height:17px;border-radius:50%;align-self:start;margin-top:1px}
 .daily-subtask input[type=checkbox]{width:15px;height:15px;border-radius:50%;align-self:start;margin-top:1px}
