@@ -515,12 +515,17 @@ input[type=time]:focus{outline:none;border-color:var(--accent);background:var(--
 .cal-cell.today{border:2px solid var(--accent)}
 .cal-cell .cal-test{color:var(--warn);font-weight:600}
 .cal-cell span:not(.cal-test){text-align:right}
-.syl-row{display:grid;grid-template-columns:minmax(0,1fr) 48px repeat(4,58px);align-items:center;gap:6px;padding:10px 4px;border-bottom:1px solid var(--line-soft)}
+.syl-row{display:grid;grid-template-columns:minmax(0,1fr) 48px 58px 58px 96px 58px;align-items:center;gap:6px;padding:10px 4px;border-bottom:1px solid var(--line-soft)}
 .syl-row.complete{background:var(--good-bg)}
 .syl-head{font-size:12px;font-weight:700;color:var(--muted);text-align:center;margin-top:12px}
 .syl-head span:first-child{text-align:left}
 .syl-name{font-weight:600;min-width:0}
 .syl-chk{display:flex;justify-content:center}
+.rev-step{display:inline-flex;align-items:center;justify-content:center;gap:4px}
+.rev-step button{width:24px;height:24px;border-radius:50%;border:1px solid var(--line);background:var(--panel2,transparent);color:inherit;font-size:15px;line-height:1;cursor:pointer;padding:0}
+.rev-step button:disabled{opacity:.35;cursor:default}
+.rev-step b{min-width:16px;text-align:center;font-size:13px}
+.rev-step b.on{color:var(--good)}
 .syl-chk input{-webkit-appearance:none;appearance:none;width:26px;height:26px;margin:0;box-sizing:border-box;border:1.75px dashed var(--muted2);border-radius:50%;background:transparent;cursor:pointer;display:grid;place-content:center;transition:background .15s,border-color .15s,transform .15s}
 .syl-chk input::after{content:'';width:14px;height:14px;background:var(--good);opacity:0;transition:opacity .15s;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.8l4.6 4.6L19 7.4'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.8l4.6 4.6L19 7.4'/%3E%3C/svg%3E") center/contain no-repeat}
 .syl-chk input:hover{border-style:solid;border-color:var(--good);background:color-mix(in srgb,var(--good) 10%,transparent);transform:scale(1.08)}
@@ -542,6 +547,87 @@ input[type=time]:focus{outline:none;border-color:var(--accent);background:var(--
 .syl-lecture-count input{padding:6px 8px}
 .test-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-soft)}
 .test-h{margin:16px 0 4px;font-size:14px}
+.tt-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.tt-primary{display:flex;gap:8px;flex-wrap:wrap}
+.tt-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:18px 0 6px;padding-top:16px;border-top:1px solid var(--line-soft)}
+.tt-tabs{display:inline-flex;max-width:100%;overflow-x:auto}
+.tt-tabs button{white-space:nowrap;padding:8px 14px;flex:0 0 auto}
+.tt-tabn{display:inline-block;min-width:18px;margin-left:4px;padding:1px 6px;border-radius:999px;background:var(--panel3);font-size:11px;font-weight:700;color:var(--muted)}
+.tt-tabs button.active .tt-tabn{background:var(--accent-bg);color:var(--accent)}
+.tt-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tt-selbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 2px;padding:10px 12px;border-radius:12px;background:var(--accent-bg);color:var(--accent);font-size:12.5px}
+.tt-selbtns{display:flex;gap:6px}
+.tt-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:14px 0 4px}
+.tt-stat{background:var(--panel2);border:1px solid var(--line-soft);border-radius:12px;padding:13px 15px}
+.tt-stat span{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tt-stat b{display:block;font-size:22px;letter-spacing:-.03em;margin-top:4px}
+.tt-stat small{display:block;font-size:12px;color:var(--muted);margin-top:1px}
+.tt-section{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tt-count{font-size:11.5px;font-weight:600;letter-spacing:0;text-transform:none}
+.tt-list{border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;background:var(--panel)}
+.tt-item{display:flex;gap:12px;align-items:center;padding:13px 15px;border-bottom:1px solid var(--line-soft)}
+.tt-item:last-child{border-bottom:0}
+.tt-item.sel{background:var(--accent-bg)}
+.tt-ck{width:18px;height:18px;flex-shrink:0}
+.tt-main{flex:1;min-width:0}
+.tt-top{display:flex;align-items:baseline;gap:4px 10px;flex-wrap:wrap}
+.tt-name{font-size:14px}
+.tt-date{font-size:12px;color:var(--muted)}
+.tt-main .progress-outer{height:6px;margin-top:9px}
+.tt-side{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.tt-scorebox{display:flex;align-items:center;gap:8px}
+.tt-score{font-weight:750;font-size:15px}
+.tt-score small{font-weight:500;font-size:12px;color:var(--muted)}
+.tt-pct{font-size:12px;font-weight:750;padding:3px 9px;border-radius:999px}
+.tt-pct.good{background:var(--good-bg);color:var(--good)}
+.tt-pct.warn{background:var(--warn-bg);color:var(--warn)}
+.tt-delta{font-size:11.5px;font-weight:700}
+.tt-delta.up{color:var(--good)}.tt-delta.down{color:var(--one)}
+.tt-badge{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--accent-bg);color:var(--accent);white-space:nowrap}
+.tt-badge.due{background:var(--warn-bg);color:var(--warn)}
+.tt-tag{display:inline-block;margin-top:5px;font-size:11.5px;color:var(--muted);background:var(--panel2);border:1px solid var(--line-soft);border-radius:999px;padding:2px 9px}
+.tt-syl{margin-top:4px;font-size:12px}
+.tt-syl summary{cursor:pointer;color:var(--muted);font-weight:600;list-style:none}
+.tt-syl summary::-webkit-details-marker{display:none}
+.tt-syl summary::before{content:'▸ ';font-size:10px}
+.tt-syl[open] summary::before{content:'▾ '}
+.tt-syl-row{display:flex;gap:10px;margin-top:6px;align-items:baseline}
+.tt-syl-row b{flex:0 0 68px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.tt-syl-row span{display:flex;flex-wrap:wrap;gap:4px}
+.tt-syl-row i{font-style:normal;background:var(--panel2);border:1px solid var(--line-soft);border-radius:999px;padding:2px 8px}
+.tt-all-modal{width:min(820px,100%);display:flex;flex-direction:column;overflow:hidden;max-height:min(780px,calc(100vh - 32px))}
+.tt-all-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-shrink:0}
+.tt-all-filter{display:inline-flex;max-width:100%;overflow-x:auto;margin:14px 0 10px;flex-shrink:0;align-self:flex-start}
+.tt-all-filter button{white-space:nowrap;padding:7px 14px;flex:0 0 auto}
+.tt-all-body{flex:1;min-height:0;overflow-y:auto;border-top:1px solid var(--line-soft)}
+.tt-all-row{display:grid;grid-template-columns:minmax(0,1.6fr) 96px 148px minmax(0,1fr);gap:10px;align-items:center;padding:9px 2px;border-bottom:1px solid var(--line-soft)}
+.tt-all-row:last-child{border-bottom:0}
+.tt-all-headrow{position:sticky;top:0;z-index:1;background:var(--panel);font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:10px 2px}
+.tt-all-row input{width:100%;min-width:0;height:38px;box-sizing:border-box;padding:0 10px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);color:var(--text);font:inherit;font-size:13px}
+.tt-all-cat{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tt-all-marks{display:flex;align-items:center;gap:6px;min-width:0}
+@media(max-width:560px){
+  .tt-all-row{grid-template-columns:1fr 1fr;gap:8px;padding:11px 2px}
+  .tt-all-name{grid-column:1/-1}
+  .tt-all-cat{grid-column:1/-1;order:-1;padding-top:2px}
+  .tt-all-headrow{display:none}
+}
+.tt-empty{margin-top:20px;padding:26px;text-align:center;color:var(--muted);font-size:13px;border:1px dashed var(--line);border-radius:14px}
+@media(max-width:560px){
+  .tt-item{flex-wrap:wrap}
+  .tt-side{width:100%;justify-content:space-between;padding-left:0}
+  .tt-primary{width:100%}.tt-primary .btn{flex:1}
+  .tt-tools .btn{flex:1 1 auto}
+}
+.tsyl-line{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
+.tsyl-box{border:1px solid var(--line);border-radius:12px;padding:6px 12px;margin:2px 0 12px}
+.tsyl-box details{border-bottom:1px solid var(--line-soft);padding:6px 0}
+.tsyl-box details:last-child{border-bottom:0}
+.tsyl-box summary{cursor:pointer;font-weight:600;font-size:13px;padding:4px 0}
+.tsyl-chips{display:flex;flex-wrap:wrap;gap:6px;padding:6px 0}
+.tsyl-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;cursor:pointer}
+.tsyl-chip input{margin:0}
+.tsyl-add{width:100%;margin:2px 0 6px;font-size:12px}
 .test-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0 4px}
 .test-actions .btn{width:100%;min-height:42px}
 .test-row .test-row-ctl{display:flex;align-items:center;gap:8px;flex-shrink:0}
@@ -555,10 +641,10 @@ input[type=time]:focus{outline:none;border-color:var(--accent);background:var(--
 .test-alert span{opacity:.85}
 @media(max-width:600px){
   .cal-cell{min-height:58px;font-size:10px;padding:3px}
-  .syl-row{grid-template-columns:minmax(0,1fr) 34px repeat(4,38px)}
+  .syl-row{grid-template-columns:minmax(0,1fr) 34px 38px 38px 88px 38px}
 }
 @media (max-width:520px){
-  .syl-row{grid-template-columns:minmax(0,1fr) 34px repeat(4,34px);gap:3px;padding:9px 2px}
+  .syl-row{grid-template-columns:minmax(0,1fr) 34px 34px 34px 80px 34px;gap:3px;padding:9px 2px}
   .syl-head{font-size:9.5px;letter-spacing:0}
   .syl-name{font-size:11.5px;letter-spacing:-.01em;overflow-wrap:anywhere}
   .syl-chk input{width:24px;height:24px}
@@ -1294,6 +1380,7 @@ function migrateState(p){
       remapped[key]=s.syllabus[key];
     });
     s.syllabus=remapped;
+    Object.keys(s.syllabus).forEach(k=>{ const o=s.syllabus[k]; if(o && o.revise!==undefined){ const n=reviseCount(o); if(n>0) o.revise=n; else delete o.revise; } });
   }
   /* Chapter data (names + real lecture counts) is versioned; bump it to refresh
      everyone onto the current batch curriculum. */
@@ -1506,6 +1593,15 @@ function addOrganicLecture(extra){
   return true;
 }
 function chapterChecks(sid,ch){ return state.syllabus[sid+'::'+ch]||{}; }
+/* Revision is a count (how many times the chapter has been revised); old saves stored true = once. */
+function reviseCount(c){ const n=c&&c.revise; return typeof n==='number' ? Math.max(0,Math.floor(n)) : (n?1:0); }
+function changeRevise(sid,ch,delta){
+  const k=sid+'::'+ch, o=state.syllabus[k]||(state.syllabus[k]={});
+  const n=Math.max(0,Math.min(99,reviseCount(o)+delta));
+  if(n>0) o.revise=n; else delete o.revise;
+  if(!Object.keys(o).length) delete state.syllabus[k];
+  state.tasks.forEach(t=>{ if(t.subject===sid && t.chapter===ch && t.type==='revise') t.done=n>0; });
+}
 function setSyllabus(sid,ch,type,val){
   const k=sid+'::'+ch, o=state.syllabus[k]||(state.syllabus[k]={});
   if(val) o[type]=true; else delete o[type];
@@ -2283,7 +2379,7 @@ function render(){
   else if(state.view==='tests') html+=renderTestSection();
   else if(state.view==='settings') html+=renderSettings();
   else html+=renderHero()+renderDueTests()+renderHolidayTips()+renderDailyToday();
-  html+=renderAddTaskModal()+renderTestModal()+renderMarksModal()+renderAccuracyPrompt()+renderTestTaskMarksPrompt()+renderFloatingTimer();
+  html+=renderAddTaskModal()+renderTestModal()+renderAllTestsModal()+renderMarksModal()+renderAccuracyPrompt()+renderTestTaskMarksPrompt()+renderFloatingTimer();
   app.innerHTML=html;
   document.getElementById('sidebar').innerHTML=renderSidebarNav();
   document.getElementById('chatbar').innerHTML=renderAiChat();
@@ -2437,18 +2533,50 @@ function attachHandlers(){
     if(!confirm('Remove "'+c.name+'" from the chapter list? Its ticks are cleared; past tasks stay in your history.')) return;
     state.chapterList[sylSubject].splice(i,1); delete state.syllabus[sylSubject+'::'+c.name]; saveState(); render();
   }; });
+  all('[data-act="revstep"]',el=>{ el.onclick=()=>{ changeRevise(sylSubject,el.dataset.ch,parseInt(el.dataset.d)); saveState(); render(); }; });
   all('[data-act="sylcheck"]',el=>{ el.onchange=()=>{ toggleSyllabus(sylSubject,el.dataset.ch,el.dataset.type,el.checked); saveState(); render(); }; });
 
   // tests
   all('[data-act="addtest"]',el=>{ el.onclick=()=>{
     const sc=el.dataset.mode!=='schedule';
-    const t0=testTypes()[0]; testDraft={mode:sc?'score':'schedule',type:t0,name:'',date:sc?todayISO():tomorrowISO(),scored:'',total:defaultTotalFor(t0)}; render();
+    const t0=testTypes()[0]; testDraft={mode:sc?'score':'schedule',type:t0,name:'',date:sc?todayISO():tomorrowISO(),scored:'',total:defaultTotalFor(t0),syl:emptySyl(),open:{}}; render();
   }; });
   onChange('tt-type',v=>{ testDraft.type=v; testDraft.total=defaultTotalFor(v); render(); });
   onChange('tt-date',v=>{ testDraft.date=v; });
   const tn=$('tt-name'); if(tn) tn.oninput=()=>{ testDraft.name=tn.value; };
   const tsc=$('tt-scored'); if(tsc) tsc.oninput=()=>{ testDraft.scored=tsc.value; };
   const ttl=$('tt-total'); if(ttl) ttl.oninput=()=>{ testDraft.total=ttl.value; };
+  all('details[data-sub]',el=>{ el.ontoggle=()=>{ if(testDraft){ testDraft.open=testDraft.open||{}; testDraft.open[el.dataset.sub]=el.open; } }; });
+  all('[data-act="tsyl"]',el=>{ el.onchange=()=>{
+    if(!testDraft) return; testDraft.syl=testDraft.syl||emptySyl();
+    const a=testDraft.syl[el.dataset.sub], i=a.indexOf(el.dataset.ch);
+    if(el.checked && i<0) a.push(el.dataset.ch); if(!el.checked && i>=0) a.splice(i,1);
+    const c=document.querySelector('[data-cnt="'+el.dataset.sub+'"]'); if(c) c.textContent=a.length?'· '+a.length+' selected':'';
+  }; });
+  all('[data-act="tsyl-custom"]',el=>{ el.onkeydown=e=>{
+    if(e.key!=='Enter') return; e.preventDefault();
+    const v=el.value.trim(); if(!v||!testDraft) return;
+    testDraft.syl=testDraft.syl||emptySyl(); const a=testDraft.syl[el.dataset.sub]; if(a.indexOf(v)<0) a.push(v);
+    testDraft.open=testDraft.open||{}; testDraft.open[el.dataset.sub]=true; render();
+  }; });
+  all('[data-act="ttcat"]',el=>{ el.onclick=()=>{ testCatView=el.dataset.name; render(); }; });
+  onClick('test-sel',()=>{ testSelMode=!testSelMode; testSel={}; render(); });
+  const tselUpd=()=>{ const n=Object.keys(testSel).length, b=$('tsel-del'); if(b){ b.textContent='Delete selected ('+n+')'; b.disabled=!n; } };
+  all('[data-act="tselck"]',el=>{ el.onchange=()=>{ if(el.checked) testSel[el.dataset.id]=1; else delete testSel[el.dataset.id]; tselUpd(); }; });
+  onClick('tsel-all',()=>{
+    const every=state.tests.length && state.tests.every(t=>testSel[t.id]);
+    testSel={}; if(!every) state.tests.forEach(t=>{ testSel[t.id]=1; });
+    all('[data-act="tselck"]',el=>{ el.checked=!!testSel[el.dataset.id]; }); tselUpd();
+  });
+  onClick('tsel-del',()=>{
+    const ids=Object.keys(testSel); if(!ids.length) return;
+    if(!confirm('Delete '+ids.length+' selected test'+(ids.length===1?'':'s')+'? This cannot be undone.')) return;
+    state.tests=state.tests.filter(t=>!testSel[t.id]);
+    testSel={}; testSelMode=false; saveState(); render();
+  });
+  onClick('test-csv-import',()=>$('test-csv-file').click());
+  const tcf=$('test-csv-file'); if(tcf) tcf.onchange=e=>{ importTestCsvFiles(e.target.files); e.target.value=''; };
+  onClick('test-csv-export',exportTestsCsv);
   onClick('tt-cancel',()=>{ testDraft=null; render(); });
   onClick('tt-add',()=>{
     const d=testDraft; if(!d) return;
@@ -2459,10 +2587,10 @@ function attachHandlers(){
       const scored=parseFloat(d.scored), total=parseFloat(d.total);
       if(isNaN(scored)||isNaN(total)||total<=0){ alert('Enter your marks and the total marks.'); return; }
       if(scored>total){ alert('Marks cannot be higher than the total.'); return; }
-      state.tests.push({id:'test-'+Date.now(),date,type:d.type,name:d.name.trim()||d.type+' test',scored,total});
+      { const nt={id:'test-'+Date.now(),date,type:d.type,name:d.name.trim()||d.type+' test',scored,total}, sy=cleanSyl(d.syl); if(sy) nt.syl=sy; state.tests.push(nt); }
     } else {
       if(date<=todayISO()){ alert('Future tests need a date after today.'); return; }
-      state.tests.push({id:'test-'+Date.now(),date,type:d.type,name:d.name.trim()||d.type+' test',scored:null,total:null});
+      { const nt={id:'test-'+Date.now(),date,type:d.type,name:d.name.trim()||d.type+' test',scored:null,total:null}, sy=cleanSyl(d.syl); if(sy) nt.syl=sy; state.tests.push(nt); }
     }
     testDraft=null; saveState(); render();
   });
@@ -2483,6 +2611,24 @@ function attachHandlers(){
     render();
   }; });
   all('[data-act="catdel"]',el=>{ el.onclick=()=>deleteCategory(el.dataset.id); });
+  onClick('test-all',()=>{ testAllOpen=true; render(); });
+  all('[data-act="tallcat"]',el=>{ el.onclick=()=>{ testAllFilter=el.dataset.name; render(); }; });
+  onClick('tall-close',()=>{ testAllOpen=false; render(); });
+  const tallT=el=>state.tests.find(x=>x.id===el.dataset.id);
+  all('[data-act="tall-name"]',el=>{ el.onchange=()=>{ const t=tallT(el); if(!t) return; t.name=el.value.trim()||t.type+' test'; el.value=t.name; saveState(); }; });
+  all('[data-act="tall-date"]',el=>{ el.onchange=()=>{
+    const t=tallT(el); if(!t) return; const d=normalizeISODate(el.value,'');
+    if(!d){ alert('Pick a valid date.'); el.value=t.date; return; }
+    if(isScored(t) && d>todayISO()){ alert('A scored test cannot be dated in the future.'); el.value=t.date; return; }
+    t.date=d; saveState();
+  }; });
+  const tallMarks=el=>{ el.onchange=()=>{
+    const t=tallT(el); if(!t) return; const row=el.closest('.tt-all-row');
+    const sc=parseFloat(row.querySelector('[data-act="tall-sc"]').value), tot=parseFloat(row.querySelector('[data-act="tall-tot"]').value);
+    if(isNaN(sc)||isNaN(tot)||tot<=0||sc>tot){ alert('Enter valid marks (scored cannot exceed total).'); row.querySelector('[data-act="tall-sc"]').value=t.scored; row.querySelector('[data-act="tall-tot"]').value=t.total; return; }
+    t.scored=sc; t.total=tot; saveState();
+  }; };
+  all('[data-act="tall-sc"]',tallMarks); all('[data-act="tall-tot"]',tallMarks);
   onClick('mk-cancel',()=>{ marksDraft=null; render(); });
   onClick('mk-save',()=>{
     const scored=parseFloat($('mk-scored').value), total=parseFloat($('mk-total').value);
@@ -3086,7 +3232,7 @@ function renderRightbar(){
   const totalMs=dates.reduce((sum,d)=>sum+dailySummary(d).actualMs,0);
   const questionsToday=questionAccuracySummary(todayISO(),todayISO()).attempted;
   const lecturesToday=today.tasks.filter(t=>t.type==='lecture' && t.done).length;
-  const up=upcomingTests().slice(0,3);
+  const up=upcomingTests().slice(0,1);
   const alerts=`<div class="test-alert ${up.length?'':'none'}"><b>Test Upcoming</b>`+(up.length
     ? up.map(t=>{ const n=mzDaysBetween(todayISO(),t.date); return `<span>${escHtml(t.name)} - ${escHtml(fmtDate(t.date))}</span>`; }).join('')
     : `<span>No tests scheduled</span>`)+`</div>`;
@@ -3199,11 +3345,13 @@ function renderOrganicPlanPanel(){
 function renderSyllabus(){
   const sid=sylSubject, p=syllabusProgress(sid), pct=p.total ? Math.round(p.done/p.total*100) : 0;
   const rows=chapterNames(sid).map(ch=>{
-    const c=chapterChecks(sid,ch), all=SYL_COLS.every(([t])=>c[t]), link=externalHref(lectureLink(sid,ch));
+    const c=chapterChecks(sid,ch), all=SYL_COLS.every(([t])=>t==='revise'?reviseCount(c)>0:c[t]), link=externalHref(lectureLink(sid,ch));
     const oc=sid==='organic' ? organicProgress().chapters.find(x=>x.name===ch) : null;
     return `<div class="syl-row ${all?'complete':''}"><span class="syl-name">${escHtml(ch)}${oc?` <span class="sub">· ${oc.done}/${oc.total} lectures</span>`:''}</span>`+
       `<span class="syl-chk">${link?`<a class="syl-video" href="${escAttr(link)}" target="_blank" rel="noopener noreferrer" title="Open lecture video" aria-label="Open lecture video: ${escAttr(ch)}">${ICONS.ext(16)}</a>`:'<span class="sub">–</span>'}</span>`+
-      SYL_COLS.map(([t,l])=>`<label class="syl-chk" title="${l}"><input type="checkbox" data-act="sylcheck" data-ch="${escAttr(ch)}" data-type="${t}" ${c[t]?'checked':''} aria-label="${l}: ${escAttr(ch)}"></label>`).join('')+`</div>`;
+      SYL_COLS.map(([t,l])=>t==='revise'
+        ? `<span class="syl-chk"><span class="rev-step" title="Times revised"><button type="button" data-act="revstep" data-d="-1" data-ch="${escAttr(ch)}" ${reviseCount(c)?'':'disabled'} aria-label="Decrease revisions: ${escAttr(ch)}">−</button><b class="${reviseCount(c)?'on':''}">${reviseCount(c)}</b><button type="button" data-act="revstep" data-d="1" data-ch="${escAttr(ch)}" aria-label="Increase revisions: ${escAttr(ch)}">+</button></span></span>`
+        : `<label class="syl-chk" title="${l}"><input type="checkbox" data-act="sylcheck" data-ch="${escAttr(ch)}" data-type="${t}" ${c[t]?'checked':''} aria-label="${l}: ${escAttr(ch)}"></label>`).join('')+`</div>`;
   }).join('');
   return `<div class="card">
     <div class="daily-hero"><div><h2>Syllabus</h2><p class="sub">Tick what you have finished. It stays in sync with your daily tasks.</p></div>
@@ -3212,7 +3360,7 @@ function renderSyllabus(){
     ${sylEdit?`<div style="margin:14px 0 6px;display:flex;justify-content:space-between"><b>${mzPlural(chapterNames(sid).length,'chapter')+' in '+escHtml(subj(sid).name)}</b></div>`:''}
     ${sid==='organic' && !sylEdit ? renderOrganicPlanPanel() : ''}
     ${sylEdit ? renderSyllabusEditor(sid) : `<div class="progress-outer" style="margin-top:14px"><div class="progress-inner" style="width:${pct}%"></div></div>
-    <div class="syl-row syl-head"><span>Chapter</span><span>Video</span>${SYL_COLS.map(([,l])=>`<span>${l}</span>`).join('')}</div>${rows}`}
+    <div class="syl-row syl-head"><span>Chapter</span><span>Video</span>${SYL_COLS.map(([t,l])=>`<span>${t==='revise'?'Revisions':l}</span>`).join('')}</div>${rows}`}
   </div>`;
 }
 
@@ -3224,6 +3372,7 @@ function defaultTotalFor(type){
   return c ? c.total : 300;
 }
 function testsOfType(type){ return sortedTests().filter(t=>t.type===type); }
+let testSelMode = false, testSel = {};   // select-and-delete mode
 let testEdit = false;    // category editor open
 let testDraft = null;    // {mode:'score'|'schedule',type,name,date,scored,total}
 function mzScrollTop(){ window.scrollTo(0,0); const w=document.getElementById('app'); if(w) w.scrollTop=0; }
@@ -3238,6 +3387,113 @@ function renderDueTests(){
     <div><b>Did you take ${escHtml(t.name)}?</b><span>${escHtml(fmtDate(t.date))} · log your marks to add it to your progress.</span></div>
     <div class="mz-prompt-btns"><button class="btn sm" data-act="editmarks" data-id="${escAttr(t.id)}">Enter marks</button></div>
   </div>`).join('');
+}
+
+/* ---- Optional per-test syllabus (PCM chapters) + CSV import/export ---- */
+const TEST_SYL_SUBJECTS=[['physics','Physics'],['chemistry','Chemistry'],['maths','Maths']];
+function testSylOptions(sub){
+  if(sub==='chemistry') return ['inorganic','organic','physical'].reduce((a,id)=>a.concat(chapterNames(id)),[]);
+  return chapterNames(sub);
+}
+function emptySyl(){ return {physics:[],chemistry:[],maths:[]}; }
+function cleanSyl(syl){
+  const out={}; let any=false;
+  TEST_SYL_SUBJECTS.forEach(([k])=>{
+    const a=Array.isArray(syl&&syl[k]) ? syl[k].map(x=>String(x).trim()).filter(Boolean) : [];
+    const u=a.filter((x,i)=>a.indexOf(x)===i); out[k]=u; if(u.length) any=true;
+  });
+  return any ? out : null;
+}
+function sylLine(t){
+  if(!t.syl) return '';
+  const parts=TEST_SYL_SUBJECTS.filter(([k])=>t.syl[k]&&t.syl[k].length).map(([k,n])=>`<b>${n[0]}:</b> ${escHtml(t.syl[k].join(', '))}`);
+  const note=t.note?`<i>${escHtml(t.note)}</i>`:'';
+  return (parts.length||note) ? `<span class="tsyl-line">${parts.join(' · ')}${parts.length&&note?'<br>':''}${note}</span>` : '';
+}
+function renderSylPicker(d){
+  d.syl=d.syl||emptySyl(); d.open=d.open||{};
+  const blocks=TEST_SYL_SUBJECTS.map(([k,name])=>{
+    const opts=testSylOptions(k), chosen=d.syl[k]||[];
+    const all=opts.concat(chosen.filter(c=>opts.indexOf(c)<0));
+    const chips=all.map(ch=>`<label class="tsyl-chip"><input type="checkbox" data-act="tsyl" data-sub="${k}" data-ch="${escAttr(ch)}" ${chosen.indexOf(ch)>=0?'checked':''}> ${escHtml(ch)}</label>`).join('');
+    return `<details data-sub="${k}" ${d.open[k]?'open':''}><summary>${name} <span class="sub" data-cnt="${k}">${chosen.length?'· '+chosen.length+' selected':''}</span></summary>
+      <div class="tsyl-chips">${chips}</div>
+      <input type="text" class="tsyl-add" data-act="tsyl-custom" data-sub="${k}" placeholder="Add another topic and press Enter">
+    </details>`;
+  }).join('');
+  return `<div class="lbl" style="margin-bottom:4px">Syllabus (optional)</div><div class="tsyl-box">${blocks}</div>`;
+}
+function csvParse(text){
+  text=String(text).replace(/^\uFEFF/,'');
+  const rows=[]; let row=[], cell='', q=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(q){ if(c==='"'){ if(text[i+1]==='"'){cell+='"';i++;} else q=false; } else cell+=c; }
+    else if(c==='"') q=true;
+    else if(c===','){ row.push(cell); cell=''; }
+    else if(c==='\n'||c==='\r'){ if(c==='\r'&&text[i+1]==='\n') i++; row.push(cell); cell=''; if(row.some(x=>x.trim()!=='')) rows.push(row); row=[]; }
+    else cell+=c;
+  }
+  row.push(cell); if(row.some(x=>x.trim()!=='')) rows.push(row);
+  return rows;
+}
+function csvCell(v){ v=(v===null||v===undefined)?'':String(v); return /[",\n\r]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v; }
+function csvDate(raw){
+  raw=String(raw||'').trim();
+  let m=raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if(!m){ const m2=raw.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})$/); if(m2) m=[0,m2[3],m2[2],m2[1]]; }
+  if(!m) return '';
+  return normalizeISODate(m[1]+'-'+String(m[2]).padStart(2,'0')+'-'+String(m[3]).padStart(2,'0'),'');
+}
+function splitTopics(v){ return String(v||'').split(/\s*[|;]\s*/).map(x=>x.trim()).filter(Boolean); }
+function importTestsFromCsvText(text,fileName){
+  const rows=csvParse(text); const res={file:fileName,added:0,skipped:0,bad:[],error:''};
+  if(rows.length<2){ res.error='no data rows'; return res; }
+  const norm=h=>h.trim().toLowerCase().replace(/[^a-z]/g,'');
+  const alias={category:'category',type:'category',exam:'category',name:'name',test:'name',testname:'name',date:'date',testdate:'date',
+    physics:'physics',phy:'physics',chemistry:'chemistry',chem:'chemistry',maths:'maths',math:'maths',mathematics:'maths',
+    scored:'scored',marks:'scored',score:'scored',total:'total',totalmarks:'total',maxmarks:'total'};
+  const col={}; rows[0].forEach((h,i)=>{ const k=alias[norm(h)]; if(k&&!(k in col)) col[k]=i; });
+  if(!('date' in col)||!('name' in col)){ res.error='needs at least "name" and "date" columns'; return res; }
+  const get=(r,k)=>(k in col && r[col[k]]!==undefined) ? r[col[k]].trim() : '';
+  const defCat=testTypes()[0]||'Test';
+  rows.slice(1).forEach((r,ri)=>{
+    const line=ri+2, name=get(r,'name'), date=csvDate(get(r,'date'));
+    if(!name){ res.bad.push('row '+line+': missing name'); return; }
+    if(!date){ res.bad.push('row '+line+' ('+name+'): bad date "'+get(r,'date')+'" (use YYYY-MM-DD)'); return; }
+    let cat=get(r,'category')||defCat;
+    const found=testCats().find(c=>c.name.toLowerCase()===cat.toLowerCase());
+    if(found) cat=found.name; else state.testCategories.push({id:'cat-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),name:cat,total:300});
+    if(state.tests.some(t=>t.type===cat && t.name.toLowerCase()===name.toLowerCase() && t.date===date)){ res.skipped++; return; }
+    const sc=parseFloat(get(r,'scored')), tot=parseFloat(get(r,'total'));
+    const scoredOk=Number.isFinite(sc)&&Number.isFinite(tot)&&tot>0&&sc<=tot;
+    const t={id:'test-'+Date.now().toString(36)+Math.random().toString(36).slice(2,7),date,type:cat,name,scored:scoredOk?sc:null,total:scoredOk?tot:null};
+    const syl=cleanSyl({physics:splitTopics(get(r,'physics')),chemistry:splitTopics(get(r,'chemistry')),maths:splitTopics(get(r,'maths'))});
+    if(syl) t.syl=syl;
+    state.tests.push(t); res.added++;
+  });
+  return res;
+}
+function importTestCsvFiles(files){
+  const list=Array.from(files||[]); if(!list.length) return;
+  const previous=JSON.stringify(state);
+  Promise.all(list.map(f=>new Promise(ok=>{ const r=new FileReader(); r.onload=e=>ok({name:f.name,text:e.target.result}); r.onerror=()=>ok({name:f.name,text:null}); r.readAsText(f); }))).then(items=>{
+    const results=items.map(it=>it.text===null?{file:it.name,added:0,skipped:0,bad:[],error:'could not read file'}:importTestsFromCsvText(it.text,it.name));
+    if(!saveState()){ state=JSON.parse(previous); alert('Could not save the imported tests.'); return; }
+    render();
+    alert(results.map(r=>r.file+': '+(r.error?'not imported ('+r.error+')':r.added+' added'+(r.skipped?', '+r.skipped+' duplicate(s) skipped':'')+(r.bad.length?', '+r.bad.length+' row(s) ignored:\n   '+r.bad.slice(0,5).join('\n   ')+(r.bad.length>5?'\n   …':''):''))).join('\n\n'));
+  });
+}
+function exportTestsCsv(){
+  if(!state.tests.length){ alert('No tests to export yet.'); return; }
+  const head=['category','name','date','physics','chemistry','maths','scored','total'];
+  const lines=[head.join(',')].concat(sortedTests().map(t=>{
+    const s=t.syl||{};
+    return [t.type,t.name,t.date,(s.physics||[]).join('|'),(s.chemistry||[]).join('|'),(s.maths||[]).join('|'),isScored(t)?t.scored:'',isScored(t)?t.total:''].map(csvCell).join(',');
+  }));
+  const blob=new Blob(['\uFEFF'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob), a=document.createElement('a');
+  a.href=url; a.download='manzil-tests-'+todayISO()+'.csv'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
 }
 function renderCategoryEditor(){
   const rows=testCats().map(c=>`<div class="cat-row">
@@ -3275,45 +3531,82 @@ function deleteCategory(id){
   if(testDraft && testDraft.type===c.name) testDraft=null;
   saveState(); render();
 }
+const TT_TRASH='<svg class="ic-trash" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+let testCatView = '';
+let testAllOpen = false, testAllFilter = '';   // 'All tests' editor open   // category tab currently shown in Tests
+function ttSylBlock(t){
+  if(!t.syl) return '';
+  const rows=TEST_SYL_SUBJECTS.filter(([k])=>t.syl[k]&&t.syl[k].length);
+  const all=[]; rows.forEach(([k])=>t.syl[k].forEach(x=>{ if(all.indexOf(x)<0) all.push(x); }));
+  if(!all.length) return '';
+  if(all.length===1) return `<span class="tt-tag">${escHtml(all[0])}</span>`;
+  const n=rows.reduce((a,[k])=>a+t.syl[k].length,0);
+  return `<details class="tt-syl"><summary>Syllabus · ${n} topic${n===1?'':'s'}</summary>`+
+    rows.map(([k,name])=>`<div class="tt-syl-row"><b>${name}</b><span>${t.syl[k].map(x=>`<i>${escHtml(x)}</i>`).join('')}</span></div>`).join('')+`</details>`;
+}
+function ttCheck(t){
+  return testSelMode ? `<input type="checkbox" data-act="tselck" data-id="${escAttr(t.id)}" ${testSel[t.id]?'checked':''} aria-label="Select ${escAttr(t.name)}" class="tt-ck">` : '';
+}
+function ttDelBtn(t){ return testSelMode ? '' : `<button class="task-del" data-act="deltest" data-id="${escAttr(t.id)}" aria-label="Delete test">${TT_TRASH}</button>`; }
+function ttSection(title,count,body){
+  return `<div class="tt-section"><span>${title}</span>${count?`<span class="tt-count">${count}</span>`:''}</div><div class="tt-list">${body}</div>`;
+}
 function renderTestTypeBlock(type){
   const all=testsOfType(type), scored=all.filter(isScored);
   const up=all.filter(t=>!isScored(t) && t.date>todayISO()), due=all.filter(t=>!isScored(t) && t.date<=todayISO());
   const pcts=scored.map(t=>t.scored/t.total*100);
-  const avg=pcts.length ? Math.round(pcts.reduce((a,b)=>a+b,0)/pcts.length) : 0, best=pcts.length ? Math.round(Math.max.apply(null,pcts)) : 0;
-  const pending=up.concat(due).map(t=>{
-    const n=mzDaysBetween(todayISO(),t.date);
-    return `<div class="test-row"><div><b>${escHtml(t.name)}</b><span class="sub"> · ${escHtml(fmtDate(t.date))} · ${n>0?(n===1?'tomorrow':'in '+n+' days'):'marks needed'}</span></div>
-      <div class="test-row-ctl">${n<=0?`<button class="btn sm" data-act="editmarks" data-id="${escAttr(t.id)}">Enter marks</button>`:''}<button class="task-del" data-act="deltest" data-id="${escAttr(t.id)}" aria-label="Delete test"><svg class="ic-trash" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>`;
-  }).join('');
-  const bars=scored.map((t,i)=>{
-    const pct=t.scored/t.total*100, prev=i? scored[i-1].scored/scored[i-1].total*100 : null;
-    const d=prev===null ? '' : ` · ${pct-prev>=0?'+':''}${Math.round(pct-prev)} pts`;
-    return `<div class="test-row"><div style="flex:1;min-width:0">
-      <div style="display:flex;justify-content:space-between;gap:8px"><b>${escHtml(t.name)} <span class="sub">${escHtml(fmtDate(t.date))}</span></b><span>${t.scored}/${t.total} · ${Math.round(pct)}%${d}</span></div>
-      <div class="progress-outer"><div class="progress-inner" style="width:${Math.max(0,Math.min(100,pct))}%"></div></div></div>
-      <div class="test-row-ctl"><button class="btn ghost sm" data-act="editmarks" data-id="${escAttr(t.id)}">Edit</button><button class="task-del" data-act="deltest" data-id="${escAttr(t.id)}" aria-label="Delete test"><svg class="ic-trash" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>`;
-  }).join('');
-  return `<div style="margin-top:18px">
-    <div class="daily-kicker">${escHtml(type)}</div><h3 style="margin:4px 0 10px">${escHtml(type)} progress</h3>
-    <div class="daily-progress-grid">
-      <div class="daily-metric"><b>${scored.length}</b><span>Tests taken</span></div>
-      <div class="daily-metric"><b>${avg}%</b><span>Average score</span></div>
-      <div class="daily-metric"><b>${best}%</b><span>Best score</span></div>
-    </div>
-    ${pending?`<h3 class="test-h">Upcoming &amp; pending</h3>${pending}`:''}
-    ${bars?`<h3 class="test-h">Scores</h3>${bars}`:'<div class="daily-empty">No scores yet.</div>'}
+  const avg=pcts.length ? Math.round(pcts.reduce((a,b)=>a+b,0)/pcts.length) : null, best=pcts.length ? Math.round(Math.max.apply(null,pcts)) : null;
+  const nxt=up[0], nd=nxt?mzDaysBetween(todayISO(),nxt.date):0;
+  const stats=`<div class="tt-stats">
+    <div class="tt-stat"><span>Tests taken</span><b>${scored.length}</b></div>
+    <div class="tt-stat"><span>Average</span><b>${avg===null?'–':avg+'%'}</b></div>
+    <div class="tt-stat"><span>Best</span><b>${best===null?'–':best+'%'}</b></div>
+    <div class="tt-stat"><span>Next test</span><b>${nxt?escHtml(new Date(nxt.date+'T00:00:00Z').toLocaleDateString('en-US',{day:'numeric',month:'short',timeZone:'UTC'})):'–'}</b>${nxt?`<small>${nd===1?'tomorrow':'in '+nd+' days'}</small>`:''}</div>
   </div>`;
+  const dueRows=due.map(t=>`<div class="tt-item ${testSel[t.id]?'sel':''}">${ttCheck(t)}
+    <div class="tt-main"><div class="tt-top"><b class="tt-name">${escHtml(t.name)}</b><span class="tt-date">${escHtml(fmtDate(t.date))}</span></div>${ttSylBlock(t)}</div>
+    <div class="tt-side"><span class="tt-badge due">Marks needed</span>${testSelMode?'':`<button class="btn sm" data-act="editmarks" data-id="${escAttr(t.id)}">Enter marks</button>`}${ttDelBtn(t)}</div></div>`).join('');
+  const shown=testSelMode?up:up.slice(0,1);
+  const upRows=shown.map(t=>{ const n=mzDaysBetween(todayISO(),t.date);
+    return `<div class="tt-item ${testSel[t.id]?'sel':''}">${ttCheck(t)}
+    <div class="tt-main"><div class="tt-top"><b class="tt-name">${escHtml(t.name)}</b><span class="tt-date">${escHtml(fmtDate(t.date))}</span></div>${ttSylBlock(t)}</div>
+    <div class="tt-side"><span class="tt-badge">${n===1?'Tomorrow':'In '+n+' days'}</span>${ttDelBtn(t)}</div></div>`; }).join('');
+  const more=testSelMode?0:Math.max(0,up.length-1);
+  const scoreRows=scored.map((t,i)=>{
+    const pct=t.scored/t.total*100, prev=i? scored[i-1].scored/scored[i-1].total*100 : null, dl=prev===null?null:Math.round(pct-prev);
+    return `<div class="tt-item ${testSel[t.id]?'sel':''}">${ttCheck(t)}
+    <div class="tt-main"><div class="tt-top"><b class="tt-name">${escHtml(t.name)}</b><span class="tt-date">${escHtml(fmtDate(t.date))}</span></div>${ttSylBlock(t)}
+      <div class="progress-outer"><div class="progress-inner" style="width:${Math.max(0,Math.min(100,pct))}%"></div></div></div>
+    <div class="tt-side"><div class="tt-scorebox"><span class="tt-score">${t.scored}<small>/${t.total}</small></span><span class="tt-pct ${pct>=60?'good':'warn'}">${Math.round(pct)}%</span>${dl===null?'':`<span class="tt-delta ${dl>=0?'up':'down'}">${dl>=0?'▲':'▼'} ${Math.abs(dl)}</span>`}</div>
+      ${ttDelBtn(t)}</div></div>`; }).join('');
+  return stats
+    + (dueRows?ttSection('Awaiting marks',due.length,dueRows):'')
+    + (upRows?ttSection('Upcoming',more?'+'+more+' more scheduled':'',upRows):'')
+    + (scoreRows?ttSection('Scores',scored.length+' test'+(scored.length===1?'':'s'),scoreRows):`<div class="tt-empty">No scores logged yet for ${escHtml(type)}.</div>`);
 }
 function renderTestSection(){
-  return `<div class="card">
-    <div class="daily-hero"><div><div class="daily-kicker">Tests</div><h2>Tests</h2><p class="sub">Log a score for a test you've taken (today or earlier), or arrange one for a future date.</p></div></div>
-    <div class="test-actions">
-      <button class="btn" data-act="addtest" data-mode="score">${ICONS.plus(14)} Add score</button>
-      <button class="btn ghost" data-act="addtest" data-mode="schedule">${ICONS.cal(14)} Arrange test</button>
-      <button class="btn ${testEdit?'':'ghost'}" id="test-edit" type="button">${testEdit?'Done editing':ICONS.pencil(14)+' Edit categories'}</button>
+  const cats=testCats(); if(!cats.length) return '<div class="card"><div class="daily-empty">No test categories.</div></div>';
+  const cur=cats.find(c=>c.name===testCatView)||cats[0]; testCatView=cur.name;
+  const nSel=Object.keys(testSel).length;
+  return `<div class="card tt-card">
+    <div class="tt-head">
+      <div><div class="daily-kicker">Tests</div><h2 style="margin:0 0 4px">Tests</h2><p class="sub" style="margin:0">Log scores, schedule upcoming tests and track progress.</p></div>
+      <div class="tt-primary"><button class="btn" data-act="addtest" data-mode="score">${ICONS.plus(14)} Add score</button><button class="btn ghost" data-act="addtest" data-mode="schedule">${ICONS.cal(14)} Arrange test</button></div>
     </div>
+    <div class="tt-toolbar">
+      <div class="toggle-group tt-tabs">${cats.map(c=>`<button type="button" data-act="ttcat" data-name="${escAttr(c.name)}" class="${c.name===cur.name?'active':''}">${escHtml(c.name)} <span class="tt-tabn">${testsOfType(c.name).length}</span></button>`).join('')}</div>
+      <div class="tt-tools">
+        <button class="btn ghost sm" id="test-all" type="button">View all (${state.tests.length})</button>
+        <button class="btn ghost sm" id="test-csv-import" type="button">Import CSV</button>
+        <button class="btn ghost sm" id="test-csv-export" type="button">Export CSV</button>
+        <button class="btn ${testSelMode?'':'ghost'} sm" id="test-sel" type="button">${testSelMode?'Cancel selection':'Select &amp; delete'}</button>
+        <button class="btn ${testEdit?'':'ghost'} sm" id="test-edit" type="button">${testEdit?'Done editing':'Categories'}</button>
+        <input type="file" id="test-csv-file" accept=".csv,text/csv" multiple style="display:none">
+      </div>
+    </div>
+    ${testSelMode?`<div class="tt-selbar"><span>Tick the tests to delete. All upcoming tests are shown while selecting.</span><span class="tt-selbtns"><button class="btn ghost sm" id="tsel-all" type="button">Select all</button><button class="btn sm" id="tsel-del" type="button" ${nSel?'':'disabled'}>Delete selected (${nSel})</button></span></div>`:''}
     ${testEdit?renderCategoryEditor():''}
-    <div class="test-progress">${testCats().map(c=>renderTestTypeBlock(c.name)).join('')}</div>
+    <div class="test-progress" style="border:0;margin-top:0;padding-top:0">${renderTestTypeBlock(cur.name)}</div>
   </div>`;
 }
 function renderTestModal(){
@@ -3331,7 +3624,36 @@ function renderTestModal(){
         <label class="field"><span class="lbl">Total marks</span><input type="number" step="any" min="1" id="tt-total" value="${escAttr(d.total)}" placeholder="e.g. 300"></label>
       </div>`:''}
       <label class="field"><span class="lbl">Name (optional)</span><input type="text" id="tt-name" value="${escAttr(d.name)}" placeholder="e.g. Rotational Motion test"></label>
+      ${renderSylPicker(d)}
       <div class="btnrow"><button class="btn ghost sm" id="tt-cancel" type="button">Cancel</button><button class="btn sm" id="tt-add" type="button">${sc?'Save score':'Arrange test'}</button></div>
+    </div></div>`;
+}
+function renderAllTestsModal(){
+  if(!testAllOpen) return '';
+  const cats=testCats().map(c=>c.name);
+  if(testAllFilter && cats.indexOf(testAllFilter)<0) testAllFilter='';
+  const list=sortedTests().filter(t=>!testAllFilter||t.type===testAllFilter);
+  const rows=list.map(t=>{
+    const sc=isScored(t), id=escAttr(t.id), due=t.date<=todayISO();
+    return `<div class="tt-all-row">
+      <input type="text" class="tt-all-name" data-act="tall-name" data-id="${id}" value="${escAttr(t.name)}" aria-label="Test name">
+      <span class="tt-all-cat">${escHtml(t.type)}</span>
+      <input type="date" data-act="tall-date" data-id="${id}" value="${escAttr(t.date)}" ${sc?`max="${todayISO()}"`:''} aria-label="Test date">
+      <div class="tt-all-marks">${sc
+        ? `<input type="number" step="any" data-act="tall-sc" data-id="${id}" value="${escAttr(t.scored)}" aria-label="Marks scored"><span>/</span><input type="number" step="any" min="1" data-act="tall-tot" data-id="${id}" value="${escAttr(t.total)}" aria-label="Total marks">`
+        : `<span class="tt-badge ${due?'due':''}">${due?'Marks needed':'Upcoming'}</span>`}</div>
+    </div>`; }).join('');
+  return `<div class="daily-modal-backdrop" role="presentation">
+    <div class="daily-modal tt-all-modal" role="dialog" aria-modal="true" aria-labelledby="tall-title">
+      <div class="tt-all-top">
+        <div><div class="daily-kicker">Tests</div><h2 id="tall-title" style="margin:0">All tests <span class="sub" style="font-weight:600">(${list.length})</span></h2><p class="sub" style="margin:4px 0 0">Edit a name, date or marks. Changes save automatically.</p></div>
+        <button class="btn sm" id="tall-close" type="button">Done</button>
+      </div>
+      <div class="toggle-group tt-all-filter"><button type="button" data-act="tallcat" data-name="" class="${testAllFilter?'':'active'}">All</button>${cats.map(c=>`<button type="button" data-act="tallcat" data-name="${escAttr(c)}" class="${c===testAllFilter?'active':''}">${escHtml(c)}</button>`).join('')}</div>
+      <div class="tt-all-body">
+        <div class="tt-all-row tt-all-headrow"><span>Test</span><span class="tt-all-cat">Category</span><span>Date</span><span>Marks</span></div>
+        ${rows||'<div class="tt-empty">No tests here yet.</div>'}
+      </div>
     </div></div>`;
 }
 function renderMarksModal(){
@@ -3350,22 +3672,77 @@ function renderMarksModal(){
 }
 
 /* ---- Weekly off day: suggestions only, nothing is added to the task list ---- */
+/* ---- Weekend suggestions: revise the next test's chapters; PYQs for the oldest learned chapters ---- */
+const TOPIC_ALIASES={
+  'motion 1d':['Motion in a Straight Line'],'motion 2d':['Motion in a Plane'],'maths in physics':['Mathematical Tools'],
+  'units and dimensions':['Units and Measurements'],'com momentum and collision':['Centre of Mass & System of Particles'],
+  'atomic physics':['Modern Physics'],'dual nature':['Modern Physics'],'nuclear physics':['Modern Physics'],'ktg':['Kinetic Theory'],
+  'thermal prop':['Thermal Properties of Matter'],'mech prop fluids':['Mechanical Properties of Fluids'],'mech prop solids':['Mechanical Properties of Solids'],
+  'electrostatics':['Electric Charges and Fields','Electrostatic Potential and Capacitance'],'capacitance':['Electrostatic Potential and Capacitance'],
+  'magnetic effects of current':['Moving Charges and Magnetism'],'magnetic prop of matter':['Magnetism and Matter'],'em induction':['Electromagnetic Induction'],
+  'em waves':['Electromagnetic Waves'],'waves and sound':['Waves'],'semiconductors':['Semiconductor Electronics'],
+  'periodicity':['Classification of Elements and Periodicity in Properties'],'chemical bonding':['Chemical Bonding and Molecular Structure'],
+  'redox reactions':['Redox Reaction'],'thermodynamics c':['Thermodynamics'],'hydrocarbons':['Hydrocarbon'],'d and f block':['The d and f-Block Elements'],'p block':['P-block Elements'],
+  'aldehydes and ketones':['Aldehydes, Ketones and Carboxylic Acids'],'carboxylic acid derivatives':['Aldehydes, Ketones and Carboxylic Acids'],
+  'general organic chemistry':['GOC'],'iupac nomenclature':['IUPAC'],
+  'basic of maths':['Basic Mathematics'],'quadratic eq':['Quadratic Equations'],'sequences and series':['Sequence and Series'],'trigonometric equations':['Trigonometric Equation'],
+  'pnc':['Permutations and Combinations'],'circle':['Circles'],'parabola':['Conic Sections:Parabola'],'ellipse':['Conic Sections:Ellipse'],'hyperbola':['Conic Sections:Hyperbola'],
+  'sets and relations':['Sets','Relations and Functions'],'functions':['Relations and Functions'],'inverse trigonometry':['Inverse Trigonometric Functions'],
+  'limits':['Limit, Continuity and Differentiability'],'continuity and diff':['Limit, Continuity and Differentiability'],'area under curves':['Application of integrals'],
+  'differential equations':['Differential Equation'],'3d geometry':['Three Dimensional Geometry']
+};
+function topicKey(x){ return String(x||'').toLowerCase().replace(/&/g,' and ').replace(/[^a-z0-9]+/g,' ').trim(); }
+function topicTokens(x){ return topicKey(x).split(' ').filter(w=>w && ['and','of','in','a','the','to'].indexOf(w)<0).map(w=>w.replace(/(es|s)$/,'')); }
+/* Map a test's free-text topic to real chapters ({sid,ch}); returns [] when nothing fits well. */
+function matchTopicChapters(topic,testSub){
+  const sids=testSub==='chemistry' ? ['inorganic','organic','physical'] : [testSub];
+  const pool=[]; sids.forEach(sid=>chapterNames(sid).forEach(ch=>pool.push({sid,ch})));
+  const key=topicKey(topic);
+  const exact=pool.filter(p=>topicKey(p.ch)===key); if(exact.length) return exact.slice(0,1);
+  const al=TOPIC_ALIASES[key];
+  if(al){ const m=pool.filter(p=>al.indexOf(p.ch)>=0); if(m.length) return m; }
+  const tt=topicTokens(topic); if(!tt.length) return [];
+  let best=null, bs=0;
+  pool.forEach(p=>{ const ct=topicTokens(p.ch), hit=tt.filter(w=>ct.indexOf(w)>=0).length, sc=hit/Math.max(tt.length,1)*0.7+hit/Math.max(ct.length,1)*0.3; if(hit/tt.length>=0.6 && sc>bs){ bs=sc; best=p; } });
+  return (best && bs>=0.5) ? [best] : [];
+}
+/* Next upcoming test that lists chapters; returns {test, items:[{ch,sname}]} of chapters whose revision isn't done. */
+function nextTestRevision(){
+  for(const t of upcomingTests()){
+    if(!t.syl) continue;
+    const items=[], seen={};
+    TEST_SYL_SUBJECTS.forEach(([k,sname])=>(t.syl[k]||[]).forEach(topic=>{
+      if(/syllabus/i.test(topic)) return;
+      const m=matchTopicChapters(topic,k);
+      if(m.length){ m.forEach(p=>{ const id=p.sid+'::'+p.ch; if(seen[id]) return; seen[id]=1; if(!reviseCount(chapterChecks(p.sid,p.ch))) items.push({ch:p.ch,sname}); }); }
+      else { const id='x::'+topic; if(!seen[id]){ seen[id]=1; items.push({ch:topic,sname}); } }   // can't tell its status, so keep it
+    }));
+    if(items.length) return {test:t,items:items.slice(0,4)};   // at most 4 chapters
+  }
+  return null;
+}
 function renderHolidayTips(){
   if(!isOffDay(todayISO())) return '';
-  const revise=[], pyq=[];
+  const nt=nextTestRevision();
+  /* PYQs: the 2 oldest learned chapters without PYQs, from different subjects where possible. */
+  const learned=[];
   SUBJECTS.forEach(s=>chapterNames(s.id).forEach(ch=>{
-    const c=chapterChecks(s.id,ch);
-    if(c.lecture && !c.revise) revise.push(ch);
-    if(c.lecture && !c.pyq) pyq.push(ch);
+    const c=chapterChecks(s.id,ch); if(!c.lecture || c.pyq) return;
+    const ds=state.tasks.filter(t=>t.subject===s.id && t.chapter===ch && t.type==='lecture' && t.done && t.date).map(t=>t.date).sort();
+    learned.push({ch,sid:s.id,sname:s.name,date:ds[0]||'',idx:learned.length});
   }));
-  const line=(arr,empty)=>arr.length ? arr.slice(0,4).map(escHtml).join(' · ')+(arr.length>4?' · +'+(arr.length-4)+' more':'') : empty;
+  learned.sort((x,y)=>x.date<y.date?-1:x.date>y.date?1:x.idx-y.idx);
+  const pyq=[], used={};
+  for(let n=0;n<2;n++){
+    const open=learned.filter(x=>pyq.indexOf(x)<0), best=open.find(x=>!used[x.sid])||open[0];
+    if(best){ pyq.push(best); used[best.sid]=1; }
+  }
+  const fmt=arr=>arr.map(x=>escHtml(x.ch)+' <span class="sub">('+escHtml(x.sname)+')</span>').join(' · ');
   return `<div class="card">
     <div class="daily-kicker">Weekly off</div>
     <h2>It’s ${WEEKDAYS[state.holidayWeekday]}, a holiday</h2>
-    <p class="sub">No lecture needed today. If you feel like studying, here are some suggestions (only your organic lecture is added automatically — you can still add your own below).</p>
-    ${state.organicPlan.enabled && todayISO()>=state.organicPlan.startDate ? '<div class="daily-note" style="margin-bottom:8px"><b>Organic lecture is still on today</b> (weekends and off days included).</div>' : ''}
-    <div class="daily-note"><b>Revise notes:</b> ${line(revise,'nothing pending, all learned chapters are revised')}</div>
-    <div class="daily-note" style="margin-top:8px"><b>Solve PYQs:</b> ${line(pyq,'nothing pending, all learned chapters have PYQs done')}</div>
+    <div class="daily-note"><b>Revise notes${nt?' for '+escHtml(nt.test.name)+' ('+escHtml(fmtDate(nt.test.date))+')':''}:</b> ${nt?fmt(nt.items):'no upcoming test with chapters left to revise'}</div>
+    <div class="daily-note" style="margin-top:8px"><b>Solve PYQs:</b> ${pyq.length?fmt(pyq):'nothing pending, all learned chapters have PYQs done'}</div>
   </div>`;
 }
 
