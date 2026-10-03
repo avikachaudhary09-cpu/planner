@@ -850,6 +850,127 @@ body:not(.dark) .daily-subtask input[type=checkbox]:not(:checked):hover{border-c
 /* Today tasks: tighter gap under the section header */
 .daily-hero{margin-bottom:2px}
 .daily-task-list{margin-top:0}
+
+/* ---- compact welcome hero: quote strip + one-row countdown (much shorter) ---- */
+.mz-hero{margin-bottom:12px;border-radius:16px}
+.mz-hero .mz-hero-quote{padding:9px 18px}
+.mz-hero .mz-hero-quote p{font-size:13.5px;line-height:1.35}
+.mz-hero .card{padding:10px 18px}
+.mz-hero .card.mz-exam{gap:14px;flex-wrap:nowrap}
+.mz-hero .mz-exam-num{min-width:0;flex-direction:row;align-items:baseline;gap:6px;padding:7px 13px;border-radius:12px;white-space:nowrap}
+.mz-hero .mz-exam-num b{font-size:24px;line-height:1}
+.mz-hero .mz-exam-num span{margin-top:0;font-size:10.5px;line-height:1}
+.mz-hero .mz-exam-copy{gap:1px}
+.mz-hero .mz-exam-head{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:8px}
+.mz-hero .mz-exam-copy b{font-size:14px}
+.mz-hero .mz-exam-copy span,.mz-hero .mz-exam-copy em{font-size:12px;line-height:1.35}
+.mz-hero .mz-exam-copy em{margin-top:0}
+@media (max-width:520px){ .mz-hero .card.mz-exam{gap:10px} .mz-hero .mz-exam-num b{font-size:21px} }
+
+/* ---- runway hero: days left on the left, today→exam bar on the right ---- */
+body .mz-hero.mz-run{display:flex;align-items:center;gap:20px;padding:12px 18px;border-radius:16px;color:var(--text);background:var(--panel);border:1px solid var(--line);box-shadow:none;overflow:visible}
+.mz-run-count{display:flex;flex-direction:column;align-items:flex-start;gap:3px;flex:0 0 auto;padding-right:20px;border-right:1px solid var(--line);line-height:1.1}
+.mz-run-count b{display:flex;align-items:baseline;gap:6px;font-size:30px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text)}
+.mz-run-count b small{font-size:14px;font-weight:600;letter-spacing:0;color:var(--muted)}
+.mz-run-count span{font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap}
+.mz-run-main{flex:1;min-width:0}
+.mz-run-quote{margin:0 0 9px;font-size:13px;font-weight:600;line-height:1.35;color:var(--text)}
+.mz-run-track{display:grid;gap:3px;height:10px}
+.mz-run-track i{display:block;border-radius:3px}
+.mz-run-track i:first-child{border-radius:99px 3px 3px 99px}
+.mz-run-track i:last-child{border-radius:3px 99px 99px 3px}
+.mz-run-track i:only-child{border-radius:99px}
+.mz-run-track .study{background:var(--accent)}
+.mz-run-track .spare{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--good) 85%,transparent) 0 5px,color-mix(in srgb,var(--good) 40%,transparent) 5px 10px)}
+.mz-run-track .over{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--warn) 90%,transparent) 0 5px,color-mix(in srgb,var(--warn) 40%,transparent) 5px 10px)}
+.mz-run-labels{display:grid;gap:3px;margin-top:6px;font-size:11.5px;line-height:1.3;color:var(--muted)}
+.mz-run-labels b{color:var(--text);font-weight:700}
+.mz-run-labels .end{text-align:right}
+.mz-run-labels .d{white-space:nowrap}
+.mz-run-labels .warn{color:var(--warn)}
+@media (max-width:560px){
+  .mz-run-main{--rmin:92px}
+  .mz-run-labels .d{white-space:normal}
+  body .mz-hero.mz-run{flex-direction:column;align-items:stretch;gap:10px}
+  .mz-run-count{flex-direction:row;align-items:baseline;justify-content:space-between;gap:10px;padding:0 0 8px;border-right:0;border-bottom:1px solid var(--line)}
+}
+
+/* ---- Tests toolbar: ⋯ menu ---- */
+.tt-menu-wrap{position:relative}
+.tt-more{width:36px;min-height:36px;padding:0}
+.tt-more.on{background:var(--accent-bg);color:var(--accent);border-color:transparent}
+.tt-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);z-index:40;min-width:196px;padding:6px;border-radius:14px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow-lg)}
+.tt-menu.open{display:block}
+.tt-mi{display:flex;width:100%;align-items:center;justify-content:space-between;gap:14px;padding:9px 10px;border:0;border-radius:9px;background:transparent;color:var(--text);font:inherit;font-size:13px;font-weight:600;text-align:left;cursor:pointer}
+.tt-mi:hover,.tt-mi:focus-visible{background:var(--panel2);outline:none}
+.tt-mi-n{min-width:20px;padding:1px 7px;border-radius:999px;background:var(--panel3);color:var(--muted);font-size:11px;font-weight:700;text-align:center}
+.tt-msep{height:1px;margin:5px 4px;background:var(--line-soft)}
+
+/* ---- vector (SVG-tick) circular checkbox for Select & delete ---- */
+.tt-ck{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;border:1.75px solid var(--muted2);background:var(--panel) center/12px 12px no-repeat;cursor:pointer;flex-shrink:0;padding:0;transition:background-color .15s var(--ease),border-color .15s var(--ease),box-shadow .15s var(--ease)}
+.tt-ck:hover{border-color:var(--accent)}
+.tt-ck:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tt-ck:checked{background-color:var(--accent);border-color:var(--accent);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.8l4.6 4.6L19 7.6'/%3E%3C/svg%3E");box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 16%,transparent)}
+
+/* ---- Progress card: week switcher, summary cards, one line graph ---- */
+.pg-t{--c:var(--accent)} .pg-h{--c:var(--good)} .pg-q{--c:var(--warn)}
+.pg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px 20px;flex-wrap:wrap}
+.pg-ctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pg-nav{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--panel2)}
+.pg-arrow{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:transparent;color:var(--text);cursor:pointer;transition:background .15s var(--ease),color .15s var(--ease),opacity .15s var(--ease)}
+.pg-arrow:hover:not(:disabled){background:var(--accent-bg);color:var(--accent)}
+.pg-arrow:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.pg-arrow:disabled{opacity:.3;cursor:default}
+.pg-navlabel{display:flex;flex-direction:column;align-items:center;min-width:128px;padding:0 4px;line-height:1.2}
+.pg-navlabel b{font-size:13px;font-weight:750;color:var(--text);white-space:nowrap}
+.pg-navlabel span{font-size:11px;color:var(--muted)}
+.pg-now{border:0;background:none;padding:4px 2px;font:inherit;font-size:12.5px;font-weight:700;color:var(--accent);cursor:pointer;white-space:nowrap}
+.pg-now:hover{text-decoration:underline}
+.pg-range button{white-space:nowrap;padding:8px 14px}
+.pg-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:20px 0 6px}
+.pg-kpi{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:12px 14px 12px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);font:inherit;text-align:left;cursor:pointer;transition:opacity .15s var(--ease),background .15s var(--ease),border-color .15s var(--ease)}
+.pg-kpi:hover{background:var(--panel2)}
+.pg-kpi:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pg-kn{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--muted)}
+.pg-kn i{width:16px;height:3px;border-radius:2px;background:var(--c)}
+.pg-kpi b{font-size:26px;font-weight:750;letter-spacing:-.03em;line-height:1.15;font-variant-numeric:tabular-nums}
+.pg-ks{font-size:12px;color:var(--muted)}
+.pg-d{margin-top:5px;font-style:normal;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.pg-d u{text-decoration:none;font-weight:500;color:var(--muted)}
+.pg-d.up{color:var(--good)} .pg-d.down{color:var(--one)} .pg-d.flat{color:var(--muted);font-weight:500}
+.pg-kpi.off{opacity:.5}
+.pg-kpi.off .pg-kn i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--muted2)}
+.pg-scroll{overflow-x:auto;margin:6px -4px 0}
+.pg-svg{display:block;width:100%;min-width:560px;height:auto;font-family:inherit}
+.pg-grid{stroke:var(--line-soft);stroke-width:1}
+.pg-ax{font-size:10.5px;fill:var(--muted2);font-variant-numeric:tabular-nums}
+.pg-xd{font-size:11.5px;fill:var(--muted);font-weight:650}
+.pg-xn{font-size:11px;fill:var(--muted2)}
+.pg-xd.now,.pg-xn.now{fill:var(--accent);font-weight:800}
+.pg-todaycap{fill:var(--accent-bg)}
+.pg-xd.fut,.pg-xn.fut{opacity:.45}
+.pg-area{fill:color-mix(in srgb,var(--c) 9%,transparent)}
+.pg-line{fill:none;stroke:var(--c);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.pg-dot{fill:var(--panel);stroke:var(--c);stroke-width:2}
+.pg-dot.last,.pg-dot.on{fill:var(--c)}
+.pg-hit{fill:transparent}
+.pg-day:hover .pg-hit{fill:color-mix(in srgb,var(--accent) 8%,transparent)}
+.pg-tip{opacity:0;pointer-events:none;transition:opacity .12s var(--ease)}
+.pg-day:hover .pg-tip{opacity:1}
+.pg-tipbg{fill:var(--panel);stroke:var(--line);stroke-width:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.18))}
+.pg-tt{font-size:12px;font-weight:800;fill:var(--text)}
+.pg-tl{font-size:11.5px;fill:var(--muted)}
+.pg-tv{font-size:11.5px;font-weight:700;fill:var(--text);font-variant-numeric:tabular-nums}
+.pg-empty{font-size:12.5px;fill:var(--muted)}
+.pg-note{margin:8px 0 0;font-size:11.5px;line-height:1.5;color:var(--muted)}
+@media (max-width:560px){
+  .pg-kpis{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .pg-kpi{padding:10px 10px 11px}
+  .pg-kpi b{font-size:20px}
+  .pg-kn{font-size:11px;gap:5px}.pg-kn i{width:10px}
+  .pg-ks{font-size:11px}
+  .pg-d{font-size:11px}.pg-d u{display:none}
+}
 </style>
 
 <body>
@@ -1998,8 +2119,8 @@ function renderExamCard(){
   return `<div class="card mz-exam">
     <div class="mz-exam-num"><b>${n===0?'Today':n}</b><span>${n===0?'':(n===1?'day':'days')}</span></div>
     <div class="mz-exam-copy">
-      <b>${n===0?name+' is today. All the best!':'until '+name}</b>
-      <span>${fmtDate(state.examDate)}${n>=7?' · about '+mzPlural(weeks,'week')+' to go':''}</span>
+      <div class="mz-exam-head"><b>${n===0?name+' is today. All the best!':'until '+name}</b>
+      <span>${fmtDate(state.examDate)}${n>=7?' · about '+mzPlural(weeks,'week')+' to go':''}</span></div>
       ${plan}
     </div>
   </div>`;
@@ -2143,8 +2264,42 @@ if(act==='gosettings'){ state.view='settings'; render(); mzScrollTop(); }
 
 /* ============================ VIEWS ============================ */
 const app = document.getElementById('app');
+function mzShortDate(iso,withDay){
+  const q=iso.split('-').map(Number);
+  return new Date(Date.UTC(q[0],q[1]-1,q[2])).toLocaleDateString('en-US',Object.assign({day:'numeric',month:'short',timeZone:'UTC'},withDay?{weekday:'short'}:{}));
+}
+/* Welcome hero: a "runway" from today to exam day, split into study time and spare time */
 function renderHero(){
-  return `<section class="mz-hero"><div class="mz-hero-quote"><p>${todaysQuote()}</p></div>${renderExamCard()}</section>`;
+  const n=examDaysLeft();
+  if(n===null || n<=0){
+    return `<section class="mz-hero"><div class="mz-hero-quote"><p>${todaysQuote()}</p></div>${renderExamCard()}</section>`;
+  }
+  const exam=normalizeISODate(state.examDate,''), name=escHtml(examLabel());
+  const proj=dailyProjectedFinish();
+  const buf=proj.remaining===0 ? n : mzDaysBetween(proj.date,exam);   // spare days between finishing and the exam
+  const examTxt=name+' '+mzShortDate(exam);
+  let segs;
+  if(proj.remaining===0){
+    segs=[{w:1,cls:'spare',t:'Syllabus complete',s:mzPlural(n,'day')+' to revise and test · '+examTxt}];
+  } else if(buf>0){
+    const study=Math.max(1,n-buf);
+    segs=[{w:study,cls:'study',t:mzPlural(study,'day')+' of study',s:'done '+mzShortDate(proj.date)},
+          {w:buf,cls:'spare',t:mzPlural(buf,'spare day'),s:examTxt,end:true}];
+  } else if(buf===0){
+    segs=[{w:n,cls:'study',t:mzPlural(n,'day')+' of study',s:'finishes on exam day · '+examTxt,warn:true,end:true}];
+  } else {
+    segs=[{w:n,cls:'study',t:'Study until '+name,s:mzShortDate(exam)},
+          {w:-buf,cls:'over',t:'Short by '+mzPlural(-buf,'day'),s:'done '+mzShortDate(proj.date),warn:true,end:true}];
+  }
+  const cols=segs.map(g=>`minmax(var(--rmin,170px),${g.w}fr)`).join(' ');
+  return `<section class="mz-hero mz-run">
+    <div class="mz-run-count"><b>${n}<small>${n===1?'day':'days'}</small></b><span>until ${name} · ${mzShortDate(exam,true)}</span></div>
+    <div class="mz-run-main">
+      <p class="mz-run-quote">${todaysQuote()}</p>
+      <div class="mz-run-track" style="grid-template-columns:${cols}">${segs.map(g=>`<i class="${g.cls}"></i>`).join('')}</div>
+      <div class="mz-run-labels" style="grid-template-columns:${cols}">${segs.map(g=>`<div class="${g.end?'end ':''}${g.warn?'warn':''}"><b>${g.t}</b> · <span class="d">${g.s}</span></div>`).join('')}</div>
+    </div>
+  </section>`;
 }
 function renderQuoteBar(){ return `<div class="quotebar">${todaysQuote()}</div>`; }
 function renderHeader(){
@@ -2291,6 +2446,112 @@ function renderAddTaskModal(){
     </div>
   </div>`;
 }
+let progRange = 'last7', progOffset = 0, progHide = {};   // Progress: window type, weeks back, hidden lines
+function isoDow(iso){ const q=iso.split('-').map(Number); return new Date(Date.UTC(q[0],q[1]-1,q[2])).getUTCDay(); }
+function progWindowStart(){
+  const today=todayISO();
+  const base = progRange==='week' ? addDays(today,-((isoDow(today)+6)%7)) : addDays(today,-6);
+  return addDays(base,-7*progOffset);
+}
+function progEarliest(){
+  const ds=state.tasks.map(t=>t.date).concat(Object.values(state.questionAccuracy||{}).map(e=>e&&e.date)).filter(Boolean);
+  return ds.length ? ds.reduce((a,b)=>a<b?a:b) : todayISO();
+}
+function progQByDate(){
+  const m={}; Object.values(state.questionAccuracy||{}).forEach(e=>{ if(e && e.date) m[e.date]=(m[e.date]||0)+(e.attempted||0); });
+  return m;
+}
+function progRows(start){
+  const today=todayISO(), qBy=progQByDate(), rows=[];
+  for(let i=0;i<7;i++){
+    const d=addDays(start,i);
+    if(d>today){ rows.push({date:d,future:true}); continue; }
+    const sm=dailySummary(d);
+    rows.push({date:d,pct:sm.pct,done:sm.done,total:sm.total,hrs:sm.actualMs/3600000,q:qBy[d]||0});
+  }
+  return rows;
+}
+function progTotals(rows){
+  const live=rows.filter(r=>!r.future), t={days:live.length,done:0,total:0,hrs:0,q:0};
+  live.forEach(r=>{ t.done+=r.done; t.total+=r.total; t.hrs+=r.hrs; t.q+=r.q; });
+  t.pct=t.total?Math.round(t.done/t.total*100):null; t.has=!!(t.total||t.hrs||t.q);
+  return t;
+}
+function progPeaks(){   // best single day so far: keeps the scale steady while you browse weeks
+  const today=todayISO(); let h=0,q=0;
+  dailyDatesWithTasks().forEach(d=>{ if(d<=today) h=Math.max(h,dailySummary(d).actualMs/3600000); });
+  Object.values(progQByDate()).forEach(v=>{ q=Math.max(q,v); });
+  return {h,q};
+}
+function progFmtH(h){ const m=Math.round(h*60); return m>=60 ? Math.floor(m/60)+'h'+(m%60?' '+(m%60)+'m':'') : m+'m'; }
+function renderProgressNav(){
+  const start=progWindowStart(), end=addDays(start,6), thisYear=todayISO().slice(0,4);
+  const label=mzShortDate(start)+' – '+mzShortDate(end)+(end.slice(0,4)!==thisYear?', '+end.slice(0,4):'');
+  const tag = progOffset===0 ? (progRange==='week'?'This week':'Last 7 days') : mzPlural(progOffset,'week')+' ago';
+  const canOlder = start>progEarliest();
+  const chev=d=>`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+  return `<div class="pg-nav">
+      <button type="button" class="pg-arrow" data-act="progstep" data-d="older" aria-label="Previous week" ${canOlder?'':'disabled'}>${chev('M15 5l-7 7 7 7')}</button>
+      <div class="pg-navlabel"><b>${label}</b><span>${tag}</span></div>
+      <button type="button" class="pg-arrow" data-act="progstep" data-d="newer" aria-label="Next week" ${progOffset>0?'':'disabled'}>${chev('M9 5l7 7-7 7')}</button>
+    </div>${progOffset>0?'<button type="button" class="pg-now" data-act="prognow">Back to now</button>':''}`;
+}
+function renderProgressChart(){
+  const today=todayISO(), NAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const start=progWindowStart(), rows=progRows(start), prev=progTotals(progRows(addDays(start,-7))), cur=progTotals(rows);
+  const live=rows.filter(r=>!r.future), peaks=progPeaks();
+  const hS=Math.max(1,peaks.h), qS=Math.max(10,peaks.q);
+  const vis=k=>!progHide[k];
+  // ---- summary cards (also the legend and the line switches)
+  const delta=(d,txt)=>{
+    if(!prev.has) return '<em class="pg-d flat">No earlier week to compare</em>';
+    if(d===null) return '<em class="pg-d flat">&nbsp;</em>';
+    return d===0 ? '<em class="pg-d flat">Same as the week before</em>'
+      : `<em class="pg-d ${d>0?'up':'down'}">${d>0?'▲':'▼'} ${txt} <u>vs week before</u></em>`;
+  };
+  const dP=(cur.pct!==null&&prev.pct!==null)?cur.pct-prev.pct:null;
+  const dH=Math.round((cur.hrs-prev.hrs)*60), dQ=cur.q-prev.q;
+  const card=(k,name,big,sub,dl)=>`<button type="button" class="pg-kpi pg-${k} ${vis(k)?'':'off'}" data-act="progline" data-k="${k}" aria-pressed="${vis(k)}" title="${vis(k)?'Hide':'Show'} this line"><span class="pg-kn"><i></i>${name}</span><b>${big}</b><span class="pg-ks">${sub}</span>${dl}</button>`;
+  const avgH=cur.days?cur.hrs/cur.days:0, avgQ=cur.days?Math.round(cur.q/cur.days):0;
+  const cards=`<div class="pg-kpis">
+    ${card('t','Tasks done',cur.pct===null?'—':cur.pct+'%',cur.total?`${cur.done} of ${cur.total} tasks`:'none planned',delta(dP,Math.abs(dP||0)+' pts'))}
+    ${card('h','Study time',progFmtH(cur.hrs),`${progFmtH(avgH)} a day`,delta(dH,progFmtH(Math.abs(dH)/60)))}
+    ${card('q','Questions',String(cur.q),`${avgQ} a day`,delta(dQ,String(Math.abs(dQ))))}
+  </div>`;
+  // ---- chart
+  const W=720,H=268,L=42,R=14,T=14,B=46, pw=W-L-R, ph=H-T-B, band=pw/7;
+  const cx=i=>L+band*(i+.5), yy=(v,max)=>T+ph*(1-Math.min(1,v/max));
+  const series=[{k:'t',val:r=>r.pct,max:100},{k:'h',val:r=>r.hrs,max:hS},{k:'q',val:r=>r.q,max:qS}];
+  let g='';
+  for(let i=0;i<=4;i++){ const y=T+ph*i/4; g+=`<line class="pg-grid" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text class="pg-ax" x="${L-8}" y="${y+3.5}" text-anchor="end">${100-25*i}%</text>`; }
+  rows.forEach((r,i)=>{
+    const now=r.date===today, dn=NAMES[isoDow(r.date)], num=Number(r.date.slice(8));
+    if(now) g+=`<rect class="pg-todaycap" x="${cx(i)-24}" y="${H-B+8}" width="48" height="34" rx="12"/>`;
+    g+=`<text class="pg-xd ${now?'now':''} ${r.future?'fut':''}" x="${cx(i)}" y="${H-B+23}" text-anchor="middle">${dn}</text><text class="pg-xn ${now?'now':''} ${r.future?'fut':''}" x="${cx(i)}" y="${H-B+37}" text-anchor="middle">${num}</text>`;
+  });
+  series.forEach(se=>{
+    if(!vis(se.k)) return;
+    const pts=live.map(r=>[cx(rows.indexOf(r)),yy(se.val(r),se.max)]);
+    if(pts.length>1){
+      const d=pts.map((q,i)=>(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)).join(' ');
+      if(se.k==='t') g+=`<path class="pg-area pg-t" d="${d} L${pts[pts.length-1][0].toFixed(1)} ${T+ph} L${pts[0][0].toFixed(1)} ${T+ph} Z"/>`;
+      g+=`<path class="pg-line pg-${se.k}" d="${d}"/>`;
+    }
+    pts.forEach((q,i)=>{ const now=live[i].date===today; g+=`<circle class="pg-dot pg-${se.k} ${now?'last':''}" cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="${now?4.4:3.3}"/>`; });
+  });
+  const keys=['t','h','q'].filter(vis);
+  rows.forEach((r,i)=>{
+    if(r.future) return;
+    const tw=178, th=34+keys.length*18, tx=Math.min(Math.max(cx(i)-tw/2,L+2),W-R-tw-2), ty=T+4;
+    const val={t:r.total?`${r.done}/${r.total} · ${r.pct}%`:'none planned',h:progFmtH(r.hrs),q:String(r.q)}, lab={t:'Tasks',h:'Study',q:'Questions'};
+    const lines=keys.map((k,n)=>`<circle class="pg-dot pg-${k} on" cx="${tx+14}" cy="${ty+37+n*18-4}" r="3.8"/><text class="pg-tl" x="${tx+26}" y="${ty+37+n*18}">${lab[k]}</text><text class="pg-tv" x="${tx+tw-12}" y="${ty+37+n*18}" text-anchor="end">${val[k]}</text>`).join('');
+    g+=`<g class="pg-day"><rect class="pg-hit" x="${L+band*i}" y="${T}" width="${band}" height="${ph}"/><g class="pg-tip"><rect class="pg-tipbg" x="${tx}" y="${ty}" width="${tw}" height="${th}" rx="11"/><text class="pg-tt" x="${tx+12}" y="${ty+20}">${escHtml(mzShortDate(r.date,true))}</text>${lines}</g></g>`;
+  });
+  if(!cur.has) g+=`<text class="pg-empty" x="${L+pw/2}" y="${T+ph/2}" text-anchor="middle">Nothing logged this week. Add tasks, run a timer or log PYQs.</text>`;
+  return `${cards}
+    <div class="pg-scroll"><svg class="pg-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily tasks completed, study time and questions attempted">${g}</svg></div>
+    <p class="pg-note">Tasks use the % scale. Study time and questions are scaled to your best day so far (${progFmtH(peaks.h||0)} · ${peaks.q||0} questions), so weeks stay comparable. Tap a card to hide or show its line.</p>`;
+}
 function renderDailyProgressTab(){
   const today=dailySummary(todayISO());
   const current=dailySummaryRange(addDays(todayISO(),-6),todayISO());
@@ -2301,16 +2562,14 @@ function renderDailyProgressTab(){
   const weekDone=current.reduce((sum,s)=>sum+s.done,0), weekTasks=current.reduce((sum,s)=>sum+s.total,0);
   const improvementText=improvement===null ? 'Need another week of saved data' :
     `${improvement.pct>=0?'+':''}${improvement.pct} pts completion · ${improvement.minutes>=0?'+':''}${improvement.minutes} min/day`;
-  let html=`<div class="card">
-    <div class="daily-kicker">In progress</div><h2>Time, progress &amp; improvement</h2>
-    <p class="sub">Every timer session is saved per task. Variance compares focused time with the task target.</p>
-    <div class="daily-progress-grid">
-      <div class="daily-metric"><b>${today.pct}%</b><span>Today’s progress</span></div>
-      <div class="daily-metric"><b>${dailyFormatDuration(today.actualMs)}</b><span>Today focused</span><small>${dailySignedMinutes(today.varianceMs)} vs target</small></div>
-      <div class="daily-metric"><b>${dailyFormatDuration(weekMs)}</b><span>Last 7 days</span><small>${dailySignedMinutes(weekMs-weekTarget)} vs target</small></div>
-      <div class="daily-metric"><b>${weekDone}/${weekTasks}</b><span>Tasks this week</span><small class="${improvement&&improvement.pct>=0?'up':'down'}">${escHtml(improvementText)}</small></div>
+  let html=`<div class="card pg-card">
+    <div class="pg-head">
+      <div><div class="daily-kicker">In progress</div><h2 style="margin:0 0 4px">Time, progress &amp; improvement</h2>
+        <p class="sub" style="margin:0">Tasks completed, study time and questions for each day.</p></div>
+      <div class="pg-ctrl">${renderProgressNav()}
+      </div>
     </div>
-    <div class="progress-outer"><div class="progress-inner" style="width:${today.pct}%"></div></div>
+    ${renderProgressChart()}
   </div>`;
   html+=`<div class="card"><h2>Daily variance</h2><p class="sub">Actual focused time, target time, and completion for your saved days.</p>`;
   if(!current.length) html+=`<div class="daily-empty">Add a task and start a timer to build your progress history.</div>`;
@@ -2560,6 +2819,23 @@ function attachHandlers(){
     testDraft.open=testDraft.open||{}; testDraft.open[el.dataset.sub]=true; render();
   }; });
   all('[data-act="ttcat"]',el=>{ el.onclick=()=>{ testCatView=el.dataset.name; render(); }; });
+  all('[data-act="progstep"]',el=>{ el.onclick=()=>{
+    if(el.dataset.d==='older'){ if(progWindowStart()>progEarliest()) progOffset++; }
+    else progOffset=Math.max(0,progOffset-1);
+    render();
+  }; });
+  all('[data-act="prognow"]',el=>{ el.onclick=()=>{ progOffset=0; render(); }; });
+  all('[data-act="progline"]',el=>{ el.onclick=()=>{
+    const k=el.dataset.k, shown=['t','h','q'].filter(x=>!progHide[x]);
+    if(!progHide[k] && shown.length===1) return;   // keep at least one line
+    progHide[k]=!progHide[k]; render();
+  }; });
+  onClick('test-menu',()=>{
+    testMenuOpen=!testMenuOpen;
+    const m=document.querySelector('.tt-menu'), b=$('test-menu');
+    if(m) m.classList.toggle('open',testMenuOpen);
+    if(b) b.setAttribute('aria-expanded',String(testMenuOpen));
+  });
   onClick('test-sel',()=>{ testSelMode=!testSelMode; testSel={}; render(); });
   const tselUpd=()=>{ const n=Object.keys(testSel).length, b=$('tsel-del'); if(b){ b.textContent='Delete selected ('+n+')'; b.disabled=!n; } };
   all('[data-act="tselck"]',el=>{ el.onchange=()=>{ if(el.checked) testSel[el.dataset.id]=1; else delete testSel[el.dataset.id]; tselUpd(); }; });
@@ -3373,6 +3649,17 @@ function defaultTotalFor(type){
 }
 function testsOfType(type){ return sortedTests().filter(t=>t.type===type); }
 let testSelMode = false, testSel = {};   // select-and-delete mode
+let testMenuOpen = false;                     // Tests "⋯" menu
+(function(){
+  const close=()=>{ testMenuOpen=false; const m=document.querySelector('.tt-menu'); if(m) m.classList.remove('open'); const b=document.getElementById('test-menu'); if(b) b.setAttribute('aria-expanded','false'); };
+  document.addEventListener('click',e=>{
+    if(!testMenuOpen) return;
+    const t=e.target, inWrap=t.closest && t.closest('.tt-menu-wrap'), inItem=t.closest && t.closest('.tt-mi');
+    if(inWrap && !inItem) return;      // the ⋯ button toggles itself
+    close();                            // picked an item, or clicked elsewhere
+  },true);
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && testMenuOpen) close(); });
+})();
 let testEdit = false;    // category editor open
 let testDraft = null;    // {mode:'score'|'schedule',type,name,date,scored,total}
 function mzScrollTop(){ window.scrollTo(0,0); const w=document.getElementById('app'); if(w) w.scrollTop=0; }
@@ -3596,11 +3883,18 @@ function renderTestSection(){
     <div class="tt-toolbar">
       <div class="toggle-group tt-tabs">${cats.map(c=>`<button type="button" data-act="ttcat" data-name="${escAttr(c.name)}" class="${c.name===cur.name?'active':''}">${escHtml(c.name)} <span class="tt-tabn">${testsOfType(c.name).length}</span></button>`).join('')}</div>
       <div class="tt-tools">
-        <button class="btn ghost sm" id="test-all" type="button">View all (${state.tests.length})</button>
-        <button class="btn ghost sm" id="test-csv-import" type="button">Import CSV</button>
-        <button class="btn ghost sm" id="test-csv-export" type="button">Export CSV</button>
-        <button class="btn ${testSelMode?'':'ghost'} sm" id="test-sel" type="button">${testSelMode?'Cancel selection':'Select &amp; delete'}</button>
-        <button class="btn ${testEdit?'':'ghost'} sm" id="test-edit" type="button">${testEdit?'Done editing':'Categories'}</button>
+        <div class="tt-menu-wrap">
+          <button class="btn ghost sm tt-more ${testSelMode||testEdit?'on':''}" id="test-menu" type="button" aria-label="More test options" aria-haspopup="menu" aria-expanded="${testMenuOpen}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="19" cy="12" r="2.2"/></svg></button>
+          <div class="tt-menu ${testMenuOpen?'open':''}" role="menu">
+            <button class="tt-mi" id="test-all" type="button" role="menuitem">View all<span class="tt-mi-n">${state.tests.length}</span></button>
+            <div class="tt-msep"></div>
+            <button class="tt-mi" id="test-csv-import" type="button" role="menuitem">Import CSV</button>
+            <button class="tt-mi" id="test-csv-export" type="button" role="menuitem">Export CSV</button>
+            <div class="tt-msep"></div>
+            <button class="tt-mi" id="test-sel" type="button" role="menuitem">${testSelMode?'Cancel selection':'Select &amp; delete'}</button>
+            <button class="tt-mi" id="test-edit" type="button" role="menuitem">${testEdit?'Done editing':'Categories'}</button>
+          </div>
+        </div>
         <input type="file" id="test-csv-file" accept=".csv,text/csv" multiple style="display:none">
       </div>
     </div>
