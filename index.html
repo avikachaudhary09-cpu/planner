@@ -513,6 +513,43 @@ input[type=time]:focus{outline:none;border-color:var(--accent);background:var(--
 .cal-cell span{display:block;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cal-cell.has{background:var(--good-bg)}
 .cal-cell.today{border:2px solid var(--accent)}
+.cal-cell.clickable{cursor:pointer;transition:border-color .15s,transform .15s}
+.cal-cell.clickable:hover{border-color:var(--accent)}
+.dw-day{border:1px solid var(--line-soft);border-radius:12px;margin-top:10px;background:var(--panel);overflow:hidden}
+.dw-day.today{border-color:color-mix(in srgb,var(--accent) 45%,var(--line-soft))}
+.dw-day summary{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:12px 14px;cursor:pointer;list-style:none}
+.dw-day summary:hover{background:var(--panel2)}
+.dw-day summary::-webkit-details-marker{display:none}
+.dw-day summary::after{content:'›';margin-left:auto;font-size:18px;line-height:1;color:var(--muted2);transition:transform .18s}
+.dw-day[open] summary::after{transform:rotate(90deg)}
+.dw-day[open] summary{border-bottom:1px solid var(--line-soft)}
+.dw-day summary b{font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:8px}
+.dw-day summary b::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--line);flex:0 0 8px}
+.dw-day.st-full summary b::before{background:var(--good)}
+.dw-day.st-part summary b::before{background:var(--warn)}
+.dw-day.today summary b::before{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+.dw-sum{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--muted)}
+.dw-pill{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:var(--muted);background:none;padding:0}
+.dw-pill+.dw-pill::before{content:'·';margin-right:8px;color:var(--muted2)}
+.dw-body{padding:14px}
+.dw-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line-soft);border-radius:10px;overflow:hidden}
+.dw-stats div{padding:10px 8px;text-align:center;background:var(--panel2)}
+.dw-stats div+div{border-left:1px solid var(--line-soft)}
+.dw-stats b{display:block;font-size:16px;font-weight:650;color:var(--text)}
+.dw-stats span{font-size:11px;font-weight:500;color:var(--muted)}
+.dw-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.dw-chip{font-size:11.5px;padding:3px 10px;border-radius:6px;background:var(--panel2);border:1px solid var(--line-soft);color:var(--muted)}
+.dw-chip b{color:var(--text);font-weight:600;margin-left:2px}
+.dw-list{margin-top:12px}
+.dw-task{display:flex;gap:10px;align-items:flex-start;padding:9px 2px;border-top:1px solid var(--line-soft)}
+.dw-task:first-child{border-top:none}
+.dw-task>div{min-width:0;flex:1}
+.dw-task b{display:block;font-size:13px;font-weight:550;overflow-wrap:anywhere;color:var(--text)}
+.dw-task span{font-size:11.5px;color:var(--muted)}
+.dw-badge{font-style:normal;font-size:9.5px;font-weight:600;letter-spacing:.05em;padding:1px 6px;border-radius:5px;margin-left:6px;vertical-align:1px;background:var(--panel2);color:var(--muted);border:1px solid var(--line-soft)}
+.dw-task.done .dw-badge{color:var(--good);border-color:color-mix(in srgb,var(--good) 35%,var(--line-soft))}
+.dw-task .dw-mark{flex:0 0 18px;text-align:center;color:var(--muted2);font-size:13px;line-height:1.3}
+.dw-task.done .dw-mark{color:var(--good);font-weight:700}
 .cal-cell .cal-test{color:var(--warn);font-weight:600}
 .cal-cell span:not(.cal-test){text-align:right}
 .syl-row{display:grid;grid-template-columns:minmax(0,1fr) 48px 58px 58px 96px 58px;align-items:center;gap:6px;padding:10px 4px;border-bottom:1px solid var(--line-soft)}
@@ -526,6 +563,12 @@ input[type=time]:focus{outline:none;border-color:var(--accent);background:var(--
 .rev-step button:disabled{opacity:.35;cursor:default}
 .rev-step b{min-width:16px;text-align:center;font-size:13px}
 .rev-step b.on{color:var(--good)}
+.syl-row.syl-org{grid-template-columns:minmax(0,1fr) 48px 96px 58px 96px 58px}
+.org-lec{display:flex;align-items:center;justify-content:center;gap:4px}
+.org-lec button{width:22px;height:22px;flex:0 0 22px;border-radius:50%;border:1px solid var(--line);background:var(--panel2);color:inherit;font-size:14px;line-height:1;cursor:pointer;padding:0;min-height:0}
+.org-lec button:disabled{opacity:.35;cursor:default}
+.org-lec b{min-width:32px;text-align:center;font-size:12px;font-weight:700;color:var(--text)}
+.org-lec b.on{color:var(--good)}
 .syl-chk input{-webkit-appearance:none;appearance:none;width:26px;height:26px;margin:0;box-sizing:border-box;border:1.75px dashed var(--muted2);border-radius:50%;background:transparent;cursor:pointer;display:grid;place-content:center;transition:background .15s,border-color .15s,transform .15s}
 .syl-chk input::after{content:'';width:14px;height:14px;background:var(--good);opacity:0;transition:opacity .15s;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.8l4.6 4.6L19 7.4'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.8l4.6 4.6L19 7.4'/%3E%3C/svg%3E") center/contain no-repeat}
 .syl-chk input:hover{border-style:solid;border-color:var(--good);background:color-mix(in srgb,var(--good) 10%,transparent);transform:scale(1.08)}
@@ -641,13 +684,19 @@ input[type=time]:focus{outline:none;border-color:var(--accent);background:var(--
 .test-alert span{opacity:.85}
 @media(max-width:600px){
   .cal-cell{min-height:58px;font-size:10px;padding:3px}
+  .dw-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .syl-row{grid-template-columns:minmax(0,1fr) 34px 38px 38px 88px 38px}
+  .syl-row.syl-org{grid-template-columns:minmax(0,1fr) 34px 56px 38px 88px 38px}
 }
 @media (max-width:520px){
   .syl-row{grid-template-columns:minmax(0,1fr) 34px 34px 34px 80px 34px;gap:3px;padding:9px 2px}
+  .syl-row.syl-org{grid-template-columns:minmax(0,1fr) 30px 50px 32px 76px 32px}
   .syl-head{font-size:9.5px;letter-spacing:0}
   .syl-name{font-size:11.5px;letter-spacing:-.01em;overflow-wrap:anywhere}
   .syl-chk input{width:24px;height:24px}
+  .org-lec{flex-wrap:wrap;gap:2px 3px}
+  .org-lec b{order:-1;flex:0 0 100%;min-width:0;font-size:10.5px;line-height:1.1}
+  .org-lec button{width:20px;height:20px;flex-basis:20px;font-size:13px}
   .syl-video{width:34px;height:34px}
 }
 
@@ -1443,7 +1492,7 @@ function defaultState(){
     subjectLectureLinks:Object.assign({},SUBJECT_LECTURE_LINKS),   // per-subject default Lecture link, editable in Syllabus
     defaultTotalMarks:{},     // legacy; migrated into testCategories
     testCategories:[{id:'cat-jee-mains',name:'JEE Mains',total:300},{id:'cat-bitsat',name:'BITSAT',total:426}],   // editable in Tests
-    organicPlan:{enabled:true,startDate:ORGANIC_PLAN_START,dismissed:''},   // 1 organic lecture a day, weekends included
+    organicPlan:{enabled:true,startDate:ORGANIC_PLAN_START,dismissed:'',doneLecs:[]},   // 1 organic lecture a day, weekends included; doneLecs = lecture numbers marked done by hand (chapter-wise)
     organicPlanApplied:false
   };
 }
@@ -1536,7 +1585,7 @@ function migrateState(p){
   }
   s.organicPlanApplied=true;
   { const op=(p.organicPlan && typeof p.organicPlan==='object') ? p.organicPlan : {};
-    s.organicPlan={enabled:true, startDate:ORGANIC_PLAN_START, dismissed:normalizeISODate(op.dismissed,'')}; }   // always on, fixed start
+    s.organicPlan={enabled:true, startDate:ORGANIC_PLAN_START, dismissed:normalizeISODate(op.dismissed,''), doneLecs:organicCleanLecs(Array.isArray(op.doneLecs) ? op.doneLecs : Array.from({length:Math.max(0,Math.min(ORGANIC_PLAN_TOTAL,Math.floor(Number(op.baseDone))||0))},(_,i)=>i+1))}; }   // always on, fixed start
   if(!Array.isArray(s.tests)) s.tests=[];
   if(!Array.isArray(p.tests) && Array.isArray(p.testLog)){   // tests logged by older versions
     s.tests=p.testLog.filter(t=>t && normalizeISODate(t.date,'')).map(t=>({id:t.id||'test-'+t.date,date:t.date,type:t.type||'Other',name:t.type||'Test',scored:t.score,total:t.maxMarks}));
@@ -1643,6 +1692,7 @@ function setTaskDone(id,done){
 /* ---- Organic auto lecture plan ---- */
 function organicDoneSet(){
   const set=new Set(); let start=0;
+  ((state.organicPlan && state.organicPlan.doneLecs)||[]).forEach(n=>set.add(n));   // lectures marked done by hand
   ORGANIC_PLAN.forEach(c=>{
     if(chapterChecks('organic',c.name).lecture) for(let k=1;k<=c.lectures;k++) set.add(start+k);
     start+=c.lectures;
@@ -1688,6 +1738,9 @@ function ensureOrganicToday(){
     state.tasks=state.tasks.filter(t=>!(isPlan(t) && t.extra && !t.done && t.date<today && staleExtra.has(t.lec)));
     changed=true;
   }
+  { const dn=organicDoneSet();   // an undone past lecture that the done count now covers is dropped, not rolled forward
+    const cov=state.tasks.filter(t=>isPlan(t) && t.type==='lecture' && !t.done && t.date<today && dn.has(t.lec));
+    if(cov.length){ const ids=new Set(cov.map(t=>t.id)); state.tasks=state.tasks.filter(t=>!ids.has(t.id)); changed=true; } }
   const planLec=state.tasks.filter(t=>isPlan(t) && t.type==='lecture');
   if(planLec.some(t=>t.date===today && !t.extra)) return changed;
   const stale=planLec.filter(t=>!t.done && t.date<today).sort((a,b)=>a.lec-b.lec)[0];
@@ -1697,6 +1750,65 @@ function ensureOrganicToday(){
     return true;
   }
   return addOrganicLecture(false) || changed;
+}
+/* Has the default organic lecture been started today (ticked, timer running, or time logged)? */
+function organicAttemptedToday(){
+  const today=todayISO(), a=state.dailyActiveTimer;
+  return state.tasks.some(t=>t.lec && t.subject==='organic' && t.type==='lecture' && !t.extra && t.date===today &&
+    (t.done || (a && a.taskId===t.id) || ((state.dailyTimeLogs[t.id]||{}).totalMs>0)));
+}
+/* Call after the organic done-count or the Organic syllabus ticks change.
+   Not started today -> today's lecture is rebuilt now (done count x -> shows x+1).
+   Already started today -> today stays as is and the change shows from tomorrow. */
+function applyOrganicChange(){
+  const today=todayISO(), attempted=organicAttemptedToday();
+  const isPlanLec=t=>t.lec && t.subject==='organic' && t.type==='lecture' && !t.extra;
+  const drop=state.tasks.filter(t=>isPlanLec(t) && !t.done && (t.date<today || (!attempted && t.date===today)));
+  if(drop.length){
+    const ids=new Set(drop.map(t=>t.id)), lecs=new Set(drop.map(t=>t.lec));
+    state.tasks.forEach(t=>{ if(t.type==='dpp' && t.subject==='organic' && !t.done && lecs.has(t.dppFor)) ids.add(t.id); });
+    ids.forEach(id=>{ if(state.dailyActiveTimer && state.dailyActiveTimer.taskId===id) dailyStopTimer(false); delete state.dailyTimeLogs[id]; delete state.questionAccuracy[id]; });
+    state.tasks=state.tasks.filter(t=>!ids.has(t.id));
+  }
+  ensureOrganicToday();
+  return attempted;
+}
+function organicCleanLecs(arr){
+  const out=[]; (arr||[]).forEach(n=>{ n=Math.floor(Number(n)); if(n>=1 && n<=ORGANIC_PLAN_TOTAL && out.indexOf(n)<0) out.push(n); });
+  return out.sort((x,y)=>x-y);
+}
+function organicChapterRange(ci){
+  let start=0; for(let i=0;i<ci;i++) start+=ORGANIC_PLAN[i].lectures;
+  return [start+1,start+ORGANIC_PLAN[ci].lectures];
+}
+/* Lectures in this chapter that the stepper is allowed to take back (hand-marked or ticked in the Lecture column;
+   lectures finished through a Today task are left alone). */
+function organicRemovable(ci){
+  const [lo,hi]=organicChapterRange(ci), ticked=chapterChecks('organic',ORGANIC_PLAN[ci].name).lecture;
+  const hand=new Set(state.organicPlan.doneLecs||[]), out=[];
+  for(let n=lo;n<=hi;n++) if(ticked||hand.has(n)) out.push(n);
+  return out;
+}
+/* Chapter-wise stepper: +1 marks this chapter's next lecture done, -1 takes the last one back. */
+function changeOrganicLec(ci,delta){
+  const ch=ORGANIC_PLAN[ci]; if(!ch) return;
+  const [lo,hi]=organicChapterRange(ci), op=state.organicPlan, hand=new Set(op.doneLecs||[]);
+  if(delta>0){
+    const done=organicDoneSet(); let n=0;
+    for(let k=lo;k<=hi;k++) if(!done.has(k)){ n=k; break; }
+    if(!n) return;
+    hand.add(n);
+  } else {
+    const rem=organicRemovable(ci); if(!rem.length) return;
+    const n=rem[rem.length-1];
+    if(chapterChecks('organic',ch.name).lecture){   // the whole chapter was ticked: keep the others, drop this one
+      for(let k=lo;k<=hi;k++) hand.add(k);
+      setSyllabus('organic',ch.name,'lecture',false);
+    }
+    hand.delete(n);
+  }
+  op.doneLecs=organicCleanLecs(Array.from(hand));
+  applyOrganicChange();
 }
 /* Adds the next unfinished organic lecture (+ its notes) to today. extra=true makes it deletable. */
 function addOrganicLecture(extra){
@@ -2776,7 +2888,12 @@ function attachHandlers(){
   updateDailyTimerDisplays();
 
   // planner, syllabus
-  all('[data-act="calmonth"]',el=>{ el.onclick=()=>{ shiftMonth(parseInt(el.dataset.n)); render(); }; });
+  all('[data-act="calmonth"]',el=>{ el.onclick=()=>{ shiftMonth(parseInt(el.dataset.n)); plannerFocus=''; render(); }; });
+  all('[data-act="plview"]',el=>{ el.onclick=()=>{ plannerView=el.dataset.v; if(plannerView==='cal') plannerFocus=''; render(); }; });
+  all('[data-act="calday"]',el=>{
+    const go=()=>{ plannerFocus=el.dataset.date; plannerView='day'; render(); setTimeout(()=>{ const c=document.querySelector('.dw-day[data-date="'+plannerFocus+'"]'); if(c) c.scrollIntoView({block:'start',behavior:'smooth'}); },30); };
+    el.onclick=go; el.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } };
+  });
   all('[data-act="sylsubject"]',el=>{ el.onclick=()=>{ sylSubject=el.dataset.sid; render(); }; });
   onClick('syl-edit',()=>{ sylEdit=!sylEdit; render(); });
   onClick('ch-add',()=>{
@@ -2793,7 +2910,8 @@ function attachHandlers(){
     state.chapterList[sylSubject].splice(i,1); delete state.syllabus[sylSubject+'::'+c.name]; saveState(); render();
   }; });
   all('[data-act="revstep"]',el=>{ el.onclick=()=>{ changeRevise(sylSubject,el.dataset.ch,parseInt(el.dataset.d)); saveState(); render(); }; });
-  all('[data-act="sylcheck"]',el=>{ el.onchange=()=>{ toggleSyllabus(sylSubject,el.dataset.ch,el.dataset.type,el.checked); saveState(); render(); }; });
+  all('[data-act="sylcheck"]',el=>{ el.onchange=()=>{ toggleSyllabus(sylSubject,el.dataset.ch,el.dataset.type,el.checked); if(sylSubject==='organic' && el.dataset.type==='lecture') applyOrganicChange(); saveState(); render(); }; });
+  all('[data-act="orglec"]',el=>{ el.onclick=()=>{ changeOrganicLec(parseInt(el.dataset.ci),parseInt(el.dataset.d)); saveState(); render(); }; });
 
   // tests
   all('[data-act="addtest"]',el=>{ el.onclick=()=>{
@@ -3530,6 +3648,8 @@ function renderRightbar(){
 
 /* ---- Planner: month calendar with study hours and questions done ---- */
 let plannerMonth = todayISO().slice(0,7);
+let plannerView = 'cal';      // 'cal' | 'day'
+let plannerFocus = '';        // date opened in the day-wise view
 function hm(ms){ const m=Math.round(ms/60000); return m<60 ? m+'m' : Math.floor(m/60)+'h'+(m%60?' '+(m%60)+'m':''); }
 function dayStats(date){
   const tasks=dailyTasksForDate(date);
@@ -3541,6 +3661,64 @@ function shiftMonth(n){
   const p=plannerMonth.split('-').map(Number);
   plannerMonth=new Date(Date.UTC(p[0],p[1]-1+n,1)).toISOString().slice(0,7);
 }
+/* ---- Day-wise view: everything that happened on each day of the month ---- */
+function dayTaskTitle(t){
+  const plan=t.lec ? organicLecInfo(t.lec) : null;
+  if(t.type==='dpp' && t.title) return t.title;
+  if(plan) return 'Organic L'+plan.no+' · C'+(plan.ci+1)+' '+plan.chapter;
+  const ty=TASK_TYPES[t.type]||{label:t.type};
+  return ty.label+(t.chapter?' – '+t.chapter:'');
+}
+function dayDetail(date){
+  const tasks=dailyTasksForDate(date).map(t=>{
+    const log=state.dailyTimeLogs[t.id]||{}, acc=state.questionAccuracy[t.id];
+    return {t,ms:dailyCurrentMs(t.id),acc,sessions:(log.sessions||[]).length};
+  });
+  const tests=state.tests.filter(x=>x.date===date);
+  const ms=tasks.reduce((a,x)=>a+x.ms,0);
+  let att=0, cor=0; tasks.forEach(x=>{ if(x.acc){ att+=x.acc.attempted||0; cor+=x.acc.correct||0; } });
+  return {tasks,tests,ms,att,cor,done:tasks.filter(x=>x.t.done).length};
+}
+function dwTypeCls(t){ return t.lec ? 'organic' : ((TASK_TYPES[t.type]||{}).cls||'core'); }
+function renderDayCard(date,open){
+  const d=dayDetail(date);
+  const bySubj={}; d.tasks.forEach(x=>{ if(x.ms){ const k=x.t.subject||'other'; bySubj[k]=(bySubj[k]||0)+x.ms; } });
+  const subjLine=Object.keys(bySubj).map(k=>`<span class="dw-chip s-${escAttr(k)}">${escHtml((subj(k)||{}).name||k)} <b>${hm(bySubj[k])}</b></span>`).join('');
+  const rows=d.tasks.map(x=>{
+    const meta=[]; if(x.ms) meta.push(ICONS.timer(11)+' '+hm(x.ms)+(x.sessions>1?' · '+x.sessions+' sessions':''));
+    if(x.acc) meta.push(ICONS.pencil(11)+' '+(x.acc.correct||0)+'/'+(x.acc.attempted||0)+' correct');
+    const sn=(subj(x.t.subject)||{}).name; if(sn) meta.unshift(escHtml(sn));
+    const cls=dwTypeCls(x.t), ty=TASK_TYPES[x.t.type]||{badge:''};
+    return `<div class="dw-task t-${cls} ${x.t.done?'done':''}"><span class="dw-mark">${x.t.done?'✓':'○'}</span><div><b>${escHtml(dayTaskTitle(x.t))} <i class="dw-badge">${x.t.done?'DONE':(x.t.lec?'ORGANIC':ty.badge)}</i></b><span>${meta.join(' · ')||'&nbsp;'}</span></div></div>`;
+  }).join('');
+  const tests=d.tests.map(x=>{
+    const sc=isScored(x), pct=sc&&x.total?Math.round(x.scored/x.total*100):null;
+    return `<div class="dw-task t-test ${sc?'done':''}"><span class="dw-mark">${ICONS.note(13)}</span><div><b>${escHtml(x.name)} <i class="dw-badge">${sc?(pct!==null?pct+'%':'SCORED'):'TEST'}</i></b><span>${escHtml(x.type||'')}${sc?' · scored '+x.scored+' / '+x.total:' · not logged yet'}</span></div></div>`;
+  }).join('');
+  const empty=!d.tasks.length && !d.tests.length;
+  const status=!d.tasks.length ? 'none' : d.done===d.tasks.length ? 'full' : d.done>0 ? 'part' : 'zero';
+  const pills=(d.tasks.length?`<span class="dw-pill p-good">${d.done}/${d.tasks.length} tasks</span>`:'')+(d.ms?`<span class="dw-pill p-blue">${ICONS.timer(11)} ${hm(d.ms)}</span>`:'')+
+    (d.att?`<span class="dw-pill p-warn">${d.att} Q</span>`:'')+(d.tests.length?`<span class="dw-pill p-pink">${mzPlural(d.tests.length,'test')}</span>`:'')+(empty?'<span class="dw-pill">No activity</span>':'');
+  return `<details class="dw-day st-${status} ${date===todayISO()?'today':''}" data-date="${date}" ${open?'open':''}>
+    <summary><b>${escHtml(fmtDate(date))}</b><span class="dw-sum">${pills}</span></summary>
+    <div class="dw-body">
+      <div class="dw-stats"><div class="c-good"><b>${d.done}/${d.tasks.length}</b><span>Tasks done</span></div><div class="c-blue"><b>${hm(d.ms)||'0m'}</b><span>Study time</span></div><div class="c-warn"><b>${d.att}</b><span>Questions</span></div><div class="c-purple"><b>${d.att?Math.round(d.cor/d.att*100)+'%':'–'}</b><span>Accuracy</span></div></div>
+      ${subjLine?`<div class="dw-chips">${subjLine}</div>`:''}
+      ${rows||tests?`<div class="dw-list">${rows}${tests}</div>`:'<p class="sub" style="margin:8px 0 0">Nothing recorded this day.</p>'}
+    </div>
+  </details>`;
+}
+function renderPlannerDays(){
+  const p=plannerMonth.split('-').map(Number), days=new Date(Date.UTC(p[0],p[1],0)).getUTCDate(), today=todayISO();
+  const list=[];
+  for(let d=days;d>=1;d--){
+    const date=plannerMonth+'-'+String(d).padStart(2,'0');
+    if(date>today) continue;   // future dates are not shown
+    const x=dayDetail(date);
+    if(x.tasks.length || x.tests.length || date===plannerFocus || date===today) list.push(date);
+  }
+  return list.map(date=>renderDayCard(date, plannerFocus ? date===plannerFocus : date===today)).join('') || '<p class="sub">No activity this month.</p>';
+}
 function renderPlanner(){
   const p=plannerMonth.split('-').map(Number);
   const first=new Date(Date.UTC(p[0],p[1]-1,1)).getUTCDay(), days=new Date(Date.UTC(p[0],p[1],0)).getUTCDate();
@@ -3550,19 +3728,20 @@ function renderPlanner(){
     const date=plannerMonth+'-'+String(d).padStart(2,'0'), st=dayStats(date);
     totMs+=st.ms; totQ+=st.q; if(st.ms>0 || st.done>0) active++;
     const tests=state.tests.filter(t=>t.date===date);
-    cells+=`<div class="cal-cell ${date===todayISO()?'today':''} ${st.done?'has':''}" title="${st.done}/${st.total} tasks done"><b>${d}</b>`+
+    cells+=`<div class="cal-cell clickable ${date===todayISO()?'today':''} ${st.done?'has':''}" data-act="calday" data-date="${date}" role="button" tabindex="0" title="${st.done}/${st.total} tasks done · tap for day details"><b>${d}</b>`+
       (st.ms?`<span>${ICONS.timer(11)} ${hm(st.ms)}</span>`:'')+(st.q?`<span>${ICONS.pencil(11)} ${st.q} Q</span>`:'')+
       tests.map(t=>`<span class="cal-test">${ICONS.note(11)} ${escHtml(t.name)}</span>`).join('')+`</div>`;
   }
   const label=new Date(Date.UTC(p[0],p[1]-1,1)).toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'});
   return `<div class="card">
-    <div class="cal-head"><button class="btn ghost sm" data-act="calmonth" data-n="-1" aria-label="Previous month">‹</button><h2>${label}</h2><button class="btn ghost sm" data-act="calmonth" data-n="1" aria-label="Next month">›</button></div>
+    <div class="cal-head"><button class="btn ghost sm" data-act="calmonth" data-n="-1" aria-label="Previous month">‹</button><h2>${label}</h2><button class="btn ghost sm" data-act="calmonth" data-n="1" aria-label="Next month" ${plannerView==='day' && plannerMonth>=todayISO().slice(0,7)?'disabled':''}>›</button></div>
+    <div class="toggle-group" style="margin-bottom:12px"><button type="button" data-act="plview" data-v="cal" class="${plannerView==='cal'?'active':''}">Calendar</button><button type="button" data-act="plview" data-v="day" class="${plannerView==='day'?'active':''}">Day-wise</button></div>
     <div class="daily-progress-grid">
       <div class="daily-metric"><b>${hm(totMs)||'0m'}</b><span>Study time</span></div>
       <div class="daily-metric"><b>${totQ}</b><span>Questions done</span></div>
       <div class="daily-metric"><b>${active}</b><span>Study days</span></div>
     </div>
-    <div class="cal-grid">${WEEKDAYS.map(w=>`<div class="cal-dow">${w.slice(0,3)}</div>`).join('')}${cells}</div>
+    ${plannerView==='day' ? `<div class="dw-list-wrap">${renderPlannerDays()}</div>` : `<div class="cal-grid">${WEEKDAYS.map(w=>`<div class="cal-dow">${w.slice(0,3)}</div>`).join('')}${cells}</div>`}
   </div>`;
 }
 
@@ -3612,20 +3791,29 @@ function renderSyllabusEditor(sid){
     <div class="btnrow" style="justify-content:flex-start"><button class="btn ghost sm" id="ch-add" type="button">＋ Add chapter</button></div>`;
 }
 function renderOrganicPlanPanel(){
-  const op=organicProgress();
+  const op=organicProgress(), started=organicAttemptedToday(), done=organicDoneSet();
+  let nx=0; for(let n=1;n<=ORGANIC_PLAN_TOTAL;n++) if(!done.has(n)){ nx=n; break; }
+  const info=nx?organicLecInfo(nx):null;
   return `<div class="syl-edit-block" style="margin:14px 0 0">
     <div class="section-title" style="margin:0 0 4px"><b>Organic lectures: ${op.done} / ${op.total} done</b></div>
-    <p class="sub" style="margin:0">One organic lecture is added to Today every day, weekends included. A missed lecture rolls over to the next day.</p>
+    <p class="sub" style="margin:0">One organic lecture is added to Today every day, weekends included. Use − / + under a chapter to set how many of its lectures you have done. ${started
+      ? 'Today\'s lecture is already started, so changes show from tomorrow.'
+      : (info ? 'Today shows '+escHtml(info.chapter)+' · lecture '+info.no+' of '+info.of+'.' : 'All organic lectures are done.')}</p>
   </div>`;
+}
+function orgLecStepper(ch,oc){
+  const ci=ORGANIC_PLAN.findIndex(x=>x.name===ch); if(ci<0) return '';
+  const canUp=oc.done<oc.total, canDown=organicRemovable(ci).length>0;
+  return `<span class="org-lec" title="Lectures done in this chapter"><button type="button" data-act="orglec" data-d="-1" data-ci="${ci}" ${canDown?'':'disabled'} aria-label="One lecture less done: ${escAttr(ch)}">−</button><b class="${oc.done?'on':''}">${oc.done}/${oc.total}</b><button type="button" data-act="orglec" data-d="1" data-ci="${ci}" ${canUp?'':'disabled'} aria-label="One more lecture done: ${escAttr(ch)}">+</button></span>`;
 }
 function renderSyllabus(){
   const sid=sylSubject, p=syllabusProgress(sid), pct=p.total ? Math.round(p.done/p.total*100) : 0;
   const rows=chapterNames(sid).map(ch=>{
     const c=chapterChecks(sid,ch), all=SYL_COLS.every(([t])=>t==='revise'?reviseCount(c)>0:c[t]), link=externalHref(lectureLink(sid,ch));
     const oc=sid==='organic' ? organicProgress().chapters.find(x=>x.name===ch) : null;
-    return `<div class="syl-row ${all?'complete':''}"><span class="syl-name">${escHtml(ch)}${oc?` <span class="sub">· ${oc.done}/${oc.total} lectures</span>`:''}</span>`+
+    return `<div class="syl-row ${sid==='organic'?'syl-org':''} ${all?'complete':''}"><span class="syl-name">${escHtml(ch)}</span>`+
       `<span class="syl-chk">${link?`<a class="syl-video" href="${escAttr(link)}" target="_blank" rel="noopener noreferrer" title="Open lecture video" aria-label="Open lecture video: ${escAttr(ch)}">${ICONS.ext(16)}</a>`:'<span class="sub">–</span>'}</span>`+
-      SYL_COLS.map(([t,l])=>t==='revise'
+      SYL_COLS.map(([t,l])=>t==='lecture' && oc ? `<span class="syl-chk">${orgLecStepper(ch,oc)}</span>` : t==='revise'
         ? `<span class="syl-chk"><span class="rev-step" title="Times revised"><button type="button" data-act="revstep" data-d="-1" data-ch="${escAttr(ch)}" ${reviseCount(c)?'':'disabled'} aria-label="Decrease revisions: ${escAttr(ch)}">−</button><b class="${reviseCount(c)?'on':''}">${reviseCount(c)}</b><button type="button" data-act="revstep" data-d="1" data-ch="${escAttr(ch)}" aria-label="Increase revisions: ${escAttr(ch)}">+</button></span></span>`
         : `<label class="syl-chk" title="${l}"><input type="checkbox" data-act="sylcheck" data-ch="${escAttr(ch)}" data-type="${t}" ${c[t]?'checked':''} aria-label="${l}: ${escAttr(ch)}"></label>`).join('')+`</div>`;
   }).join('');
@@ -3636,7 +3824,7 @@ function renderSyllabus(){
     ${sylEdit?`<div style="margin:14px 0 6px;display:flex;justify-content:space-between"><b>${mzPlural(chapterNames(sid).length,'chapter')+' in '+escHtml(subj(sid).name)}</b></div>`:''}
     ${sid==='organic' && !sylEdit ? renderOrganicPlanPanel() : ''}
     ${sylEdit ? renderSyllabusEditor(sid) : `<div class="progress-outer" style="margin-top:14px"><div class="progress-inner" style="width:${pct}%"></div></div>
-    <div class="syl-row syl-head"><span>Chapter</span><span>Video</span>${SYL_COLS.map(([t,l])=>`<span>${t==='revise'?'Revisions':l}</span>`).join('')}</div>${rows}`}
+    <div class="syl-row syl-head ${sid==='organic'?'syl-org':''}"><span>Chapter</span><span>Video</span>${SYL_COLS.map(([t,l])=>`<span>${t==='revise'?'Revisions':l}</span>`).join('')}</div>${rows}`}
   </div>`;
 }
 
