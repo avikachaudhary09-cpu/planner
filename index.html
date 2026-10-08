@@ -506,6 +506,76 @@ input[type=time]:focus{outline:none;border-color:var(--accent);background:var(--
 .cal-cell span{display:block;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cal-cell.has{background:var(--good-bg)}
 .cal-cell.today{border:2px solid var(--accent)}
+.cal-cell.future{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.cal-cell .cal-plan{display:block;margin-top:2px;color:var(--accent);font-weight:600}
+.pl-add{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 12px}
+.pl-add .field{margin:0}
+.dw-task .dw-del{flex:0 0 auto;background:none;border:none;color:var(--muted2);cursor:pointer;font-size:16px;line-height:1;padding:2px 6px;border-radius:6px}
+.dw-task .dw-del:hover{color:var(--bad,#e5484d);background:color-mix(in srgb,var(--bad,#e5484d) 12%,transparent)}
+.dw-addrow{display:flex;justify-content:flex-end;margin-top:10px}
+.dw-task.planned .dw-mark{color:var(--accent)}
+.pl-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.pl-month{display:flex;align-items:center;gap:4px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:999px;padding:4px}
+.pl-month h2{margin:0;font-size:16px;min-width:140px;text-align:center}
+.pl-month button{width:34px;height:34px;border-radius:50%;border:none;background:transparent;color:var(--text);font-size:20px;line-height:1;cursor:pointer}
+.pl-month button:hover{background:var(--panel3)}
+.pl-seg{display:flex;background:var(--panel2);border:1px solid var(--line-soft);border-radius:999px;padding:4px;gap:2px}
+.pl-seg button{border:none;background:transparent;color:var(--muted);font:inherit;font-weight:700;font-size:13px;padding:7px 16px;border-radius:999px;cursor:pointer}
+.pl-seg button.active{background:var(--accent);color:var(--accent-ink)}
+.pl-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.pl-tools .pl-grow{flex:1}
+.pl-tools input[type=date]{max-width:170px}
+.pl-strip{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 12px;margin:0 -2px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.pl-chip{flex:0 0 auto;scroll-snap-align:center;width:54px;border:1px solid var(--line-soft);border-radius:16px;padding:8px 0 8px;text-align:center;background:var(--panel2);color:var(--text);cursor:pointer;font:inherit}
+.pl-chip small{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.pl-chip b{display:block;font-size:18px;font-weight:750;line-height:1.3}
+.pl-chip i{display:block;width:6px;height:6px;border-radius:50%;margin:3px auto 0;background:transparent}
+.pl-chip.has i{background:var(--accent)}
+.pl-chip.today{border:2px solid var(--accent)}
+.pl-chip.past{opacity:.7}
+.pl-chip.sel{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);opacity:1}
+.pl-chip.sel small{color:inherit;opacity:.85}
+.pl-chip.sel.has i{background:var(--accent-ink)}
+.pl-day{border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--panel2);overflow:hidden}
+.pl-hero{display:flex;align-items:center;gap:16px;padding:18px 20px;background:linear-gradient(135deg,var(--accent-bg),transparent 80%)}
+.pl-bigdate{flex:0 0 auto;width:68px;height:68px;border-radius:18px;background:var(--accent);color:var(--accent-ink);display:grid;place-content:center;text-align:center;line-height:1.05}
+.pl-bigdate b{font-size:28px;font-weight:800}
+.pl-bigdate span{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.pl-htext{min-width:0;flex:1}
+.pl-htext h3{margin:0;font-size:19px}
+.pl-htext p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.pl-rel{display:inline-block;font-size:11px;font-weight:750;padding:2px 9px;border-radius:999px;background:var(--accent);color:var(--accent-ink);margin-bottom:5px}
+.pl-rel.past{background:var(--panel3);color:var(--muted)}
+.pl-prog{height:6px;border-radius:99px;background:var(--panel3);margin-top:9px;overflow:hidden}
+.pl-prog i{display:block;height:100%;background:var(--good);border-radius:99px}
+.pl-body{padding:14px 16px 16px}
+.pl-tasks{display:flex;flex-direction:column;gap:8px}
+.pl-task{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:14px;background:var(--panel);border:1px solid var(--line-soft);border-left:4px solid var(--accent)}
+.pl-task.t-notes{border-left-color:var(--purple)}
+.pl-task.t-practice{border-left-color:var(--warn)}
+.pl-task.t-notes-revision{border-left-color:var(--teal)}
+.pl-task.t-test{border-left-color:var(--one)}
+.pl-task.t-dpp{border-left-color:var(--good)}
+.pl-task.done{opacity:.75}
+.pl-task .pl-mark{flex:0 0 22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:12px;color:transparent}
+.pl-task.done .pl-mark{background:var(--good);border-color:var(--good);color:#fff}
+.pl-task .pl-tt{min-width:0;flex:1}
+.pl-task .pl-tt b{display:block;font-size:14px;font-weight:650;overflow-wrap:anywhere}
+.pl-task .pl-tt span{display:block;font-size:12px;color:var(--muted)}
+.pl-task .pl-del{flex:0 0 auto;border:none;background:transparent;color:var(--muted2);cursor:pointer;font-size:15px;width:30px;height:30px;border-radius:8px}
+.pl-task .pl-del:hover{background:var(--block-bg);color:var(--block)}
+.pl-empty{text-align:center;padding:26px 10px;color:var(--muted)}
+.pl-empty b{display:block;font-size:15px;color:var(--text);margin-bottom:3px}
+.pl-addbtn{width:100%;margin-top:12px;display:flex;justify-content:center;align-items:center;gap:6px;padding:12px;border-radius:14px;border:1.5px dashed var(--accent);background:var(--accent-bg);color:var(--accent);font:inherit;font-weight:750;cursor:pointer}
+.pl-addbtn:hover{background:var(--panel3)}
+.cal-cell .cal-dots{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px}
+.cal-cell .cal-dots i{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.cal-cell .cal-dots i.t-notes{background:var(--purple)}
+.cal-cell .cal-dots i.t-practice{background:var(--warn)}
+.cal-cell .cal-dots i.t-notes-revision{background:var(--teal)}
+.cal-cell .cal-dots i.t-test{background:var(--one)}
+.cal-cell .cal-dots i.t-dpp{background:var(--good)}
+.cal-cell .cal-dots i.dn{opacity:.35}
 .cal-cell.clickable{cursor:pointer;transition:border-color .15s,transform .15s}
 .cal-cell.clickable:hover{border-color:var(--accent)}
 .dw-day{border:1px solid var(--line-soft);border-radius:12px;margin-top:10px;background:var(--panel);overflow:hidden}
@@ -1626,7 +1696,7 @@ function saveState(){
 
 
 /* ============================ TASKS & PROGRESS ============================ */
-let addDraft = null;   // add-task form in progress: {type,sid,ch,examType,date} (date is always today)
+let addDraft = null;   // add-task form in progress: {type,sid,ch,examType,date} (date defaults to today; the Planner can set any future date)
 
 function dailyTasksForDate(date){
   return state.tasks.filter(t=>t.date===date && t.type!=='notes').map(t=>{
@@ -2363,7 +2433,8 @@ function renderAddTaskModal(){
       <div class="daily-kicker">New task</div>
       <h2 id="at-title">What do you want to add?</h2>
       <div class="daily-select-row">
-        <label class="field"><span class="lbl">Task (added to today)</span><select id="at-type">${opt('','Choose…',!d.type)}${types.map(t=>opt(t[0],t[1],d.type===t[0])).join('')}</select></label>
+        <label class="field"><span class="lbl">Date</span><input type="date" id="at-date" value="${escAttr(d.date||todayISO())}" min="${todayISO()}"></label>
+        <label class="field"><span class="lbl">Task${d.date&&d.date!==todayISO()?' (planned for '+escHtml(fmtDate(d.date))+')':' (added to today)'}</span><select id="at-type">${opt('','Choose…',!d.type)}${types.map(t=>opt(t[0],t[1],d.type===t[0])).join('')}</select></label>
       </div>
       ${d.type && !isTestType?`<div class="daily-select-row">
         <label class="field"><span class="lbl">Subject</span><select id="at-sub">${opt('','Choose subject…',!d.sid)}${SUBJECTS.map(s=>opt(s.id,s.name,d.sid===s.id)).join('')}</select></label>
@@ -2667,6 +2738,9 @@ function attachHandlers(){
 
   // add-task form
   all('[data-act="addtask"]',el=>{ el.onclick=()=>{ addDraft={type:'',sid:'',ch:'',examType:'',date:todayISO()}; render(); }; });
+  all('[data-act="plantask"]',el=>{ el.onclick=()=>{ addDraft={type:'',sid:'',ch:'',examType:'',date:el.dataset.date||todayISO()}; render(); }; });
+  all('[data-act="plandel"]',el=>{ el.onclick=()=>{ if(confirm('Remove this task?')){ deleteTask(el.dataset.id); saveState(); render(); } }; });
+  onChange('at-date',v=>{ if(addDraft){ addDraft.date=normalizeISODate(v,todayISO())>=todayISO()?normalizeISODate(v,todayISO()):todayISO(); render(); } });
   onChange('at-type',v=>{ addDraft.type=v; render(); });
   onChange('at-sub',v=>{ addDraft.sid=v; addDraft.ch=''; render(); });
   onChange('at-ch',v=>{ addDraft.ch=v; render(); });
@@ -2676,7 +2750,10 @@ function attachHandlers(){
     if(!addDraft || !addDraft.type) return;
     const isTestType=addDraft.type==='test';
     if(isTestType ? !addDraft.examType : (!addDraft.sid || !addDraft.ch)) return;
-    addDraft.date=todayISO(); addTasksFromDraft(addDraft); addDraft=null; saveState(); render();
+    { const dt=normalizeISODate(addDraft.date,todayISO()); addDraft.date=dt<todayISO()?todayISO():dt; }
+    const planDate=addDraft.date; addTasksFromDraft(addDraft); addDraft=null;
+    if(state.view==='planner'){ plannerMonth=planDate.slice(0,7); plannerFocus=planDate; plannerView='day'; }
+    saveState(); render();
   });
 
   // tasks, timers, accuracy prompt
@@ -2707,8 +2784,13 @@ function attachHandlers(){
   // planner, syllabus
   all('[data-act="calmonth"]',el=>{ el.onclick=()=>{ shiftMonth(parseInt(el.dataset.n)); plannerFocus=''; render(); }; });
   all('[data-act="plview"]',el=>{ el.onclick=()=>{ plannerView=el.dataset.v; if(plannerView==='cal') plannerFocus=''; render(); }; });
+  all('[data-act="plpick"]',el=>{ el.onclick=()=>{ plannerFocus=el.dataset.date; plannerMonth=plannerFocus.slice(0,7); plannerView='day'; render(); }; });
+  all('[data-act="plstep"]',el=>{ el.onclick=()=>{ const cur=(typeof plannerSelDate==='function')?plannerSelDate():todayISO(); plannerFocus=addDays(cur,parseInt(el.dataset.d)); plannerMonth=plannerFocus.slice(0,7); render(); }; });
+  onChange('pl-jump',v=>{ const d=normalizeISODate(v,''); if(d){ plannerFocus=d; plannerMonth=d.slice(0,7); plannerView='day'; render(); } });
+  { const strip=document.getElementById('pl-strip'), chip=strip&&strip.querySelector('.pl-chip.sel');
+    if(chip){ const c=()=>{ const sr=strip.getBoundingClientRect(), cr=chip.getBoundingClientRect(); strip.scrollLeft+=(cr.left-sr.left)-(sr.width/2-cr.width/2); }; c(); requestAnimationFrame(c); } }
   all('[data-act="calday"]',el=>{
-    const go=()=>{ plannerFocus=el.dataset.date; plannerView='day'; render(); setTimeout(()=>{ const c=document.querySelector('.dw-day[data-date="'+plannerFocus+'"]'); if(c) c.scrollIntoView({block:'start',behavior:'smooth'}); },30); };
+    const go=()=>{ plannerFocus=el.dataset.date; plannerView='day'; render(); mzScrollTop(); };
     el.onclick=go; el.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } };
   });
   all('[data-act="sylsubject"]',el=>{ el.onclick=()=>{ sylSubject=el.dataset.sid; render(); }; });
@@ -3503,7 +3585,8 @@ function renderDayCard(date,open){
     if(x.acc) meta.push(ICONS.pencil(11)+' '+(x.acc.correct||0)+'/'+(x.acc.attempted||0)+' correct');
     const sn=(subj(x.t.subject)||{}).name; if(sn) meta.unshift(escHtml(sn));
     const cls=dwTypeCls(x.t), ty=TASK_TYPES[x.t.type]||{badge:''};
-    return `<div class="dw-task t-${cls} ${x.t.done?'done':''}"><span class="dw-mark">${x.t.done?'✓':'○'}</span><div><b>${escHtml(dayTaskTitle(x.t))} <i class="dw-badge">${x.t.done?'DONE':ty.badge}</i></b><span>${meta.join(' · ')||'&nbsp;'}</span></div></div>`;
+    const canDel=!x.t.done && !x.ms;
+    return `<div class="dw-task t-${cls} ${x.t.done?'done':''} ${date>todayISO()?'planned':''}"><span class="dw-mark">${x.t.done?'✓':'○'}</span><div><b>${escHtml(dayTaskTitle(x.t))} <i class="dw-badge">${x.t.done?'DONE':ty.badge}</i></b><span>${meta.join(' · ')||(date>todayISO()?'Planned':'&nbsp;')}</span></div>${canDel?`<button type="button" class="dw-del" data-act="plandel" data-id="${escAttr(x.t.id)}" aria-label="Remove task" title="Remove task">✕</button>`:''}</div>`;
   }).join('');
   const tests=d.tests.map(x=>{
     const sc=isScored(x), pct=sc&&x.total?Math.round(x.scored/x.total*100):null;
@@ -3512,50 +3595,97 @@ function renderDayCard(date,open){
   const empty=!d.tasks.length && !d.tests.length;
   const status=!d.tasks.length ? 'none' : d.done===d.tasks.length ? 'full' : d.done>0 ? 'part' : 'zero';
   const pills=(d.tasks.length?`<span class="dw-pill p-good">${d.done}/${d.tasks.length} tasks</span>`:'')+(d.ms?`<span class="dw-pill p-blue">${ICONS.timer(11)} ${hm(d.ms)}</span>`:'')+
-    (d.att?`<span class="dw-pill p-warn">${d.att} Q</span>`:'')+(d.tests.length?`<span class="dw-pill p-pink">${mzPlural(d.tests.length,'test')}</span>`:'')+(empty?'<span class="dw-pill">No activity</span>':'');
+    (d.att?`<span class="dw-pill p-warn">${d.att} Q</span>`:'')+(d.tests.length?`<span class="dw-pill p-pink">${mzPlural(d.tests.length,'test')}</span>`:'')+(empty?`<span class="dw-pill">${date>todayISO()?'Nothing planned':'No activity'}</span>`:'');
   return `<details class="dw-day st-${status} ${date===todayISO()?'today':''}" data-date="${date}" ${open?'open':''}>
     <summary><b>${escHtml(fmtDate(date))}</b><span class="dw-sum">${pills}</span></summary>
     <div class="dw-body">
       <div class="dw-stats"><div class="c-good"><b>${d.done}/${d.tasks.length}</b><span>Tasks done</span></div><div class="c-blue"><b>${hm(d.ms)||'0m'}</b><span>Study time</span></div><div class="c-warn"><b>${d.att}</b><span>Questions</span></div><div class="c-purple"><b>${d.att?Math.round(d.cor/d.att*100)+'%':'–'}</b><span>Accuracy</span></div></div>
       ${subjLine?`<div class="dw-chips">${subjLine}</div>`:''}
-      ${rows||tests?`<div class="dw-list">${rows}${tests}</div>`:'<p class="sub" style="margin:8px 0 0">Nothing recorded this day.</p>'}
+      ${rows||tests?`<div class="dw-list">${rows}${tests}</div>`:`<p class="sub" style="margin:8px 0 0">${date>todayISO()?'Nothing planned yet.':'Nothing recorded this day.'}</p>`}
+      ${date>=todayISO()?`<div class="dw-addrow"><button type="button" class="btn sm" data-act="plantask" data-date="${date}">＋ Plan a task for ${date===todayISO()?'today':escHtml(mzShortDate(date))}</button></div>`:''}
     </div>
   </details>`;
 }
+function plannerSelDate(){
+  const p=plannerMonth.split('-').map(Number), days=new Date(Date.UTC(p[0],p[1],0)).getUTCDate();
+  if(plannerFocus && plannerFocus.slice(0,7)===plannerMonth) return plannerFocus;
+  const t=todayISO();
+  return t.slice(0,7)===plannerMonth ? t : plannerMonth+'-01';
+}
+function plannerRelLabel(date){
+  const n=mzDaysBetween(todayISO(),date);
+  return n===0?'Today':n===1?'Tomorrow':n===-1?'Yesterday':n>0?'In '+n+' days':Math.abs(n)+' days ago';
+}
+function renderDayPanel(date){
+  const d=dayDetail(date), today=todayISO(), past=date<today, p=date.split('-').map(Number);
+  const wd=new Date(Date.UTC(p[0],p[1]-1,p[2])).toLocaleDateString('en-US',{weekday:'long',timeZone:'UTC'});
+  const mon=new Date(Date.UTC(p[0],p[1]-1,p[2])).toLocaleDateString('en-US',{month:'short',timeZone:'UTC'});
+  const full=new Date(Date.UTC(p[0],p[1]-1,p[2])).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'});
+  const pct=d.tasks.length?Math.round(d.done/d.tasks.length*100):0;
+  const sub=d.tasks.length ? `${d.done} of ${d.tasks.length} done${d.ms?' · '+hm(d.ms)+' studied':''}` : (past?'Nothing was recorded':'Nothing planned yet');
+  const rows=d.tasks.map(x=>{
+    const sn=(subj(x.t.subject)||{}).name||'';
+    const bits=[]; if(sn) bits.push(escHtml(sn));
+    if(x.ms) bits.push(hm(x.ms)+' studied');
+    if(x.acc) bits.push((x.acc.correct||0)+'/'+(x.acc.attempted||0)+' correct');
+    const canDel=!x.t.done && !x.ms;
+    return `<div class="pl-task t-${dwTypeCls(x.t)} ${x.t.done?'done':''}"><span class="pl-mark">✓</span><div class="pl-tt"><b>${escHtml(dayTaskTitle(x.t))}</b><span>${bits.join(' · ')||((TASK_TYPES[x.t.type]||{}).label||'')}</span></div>${canDel?`<button type="button" class="pl-del" data-act="plandel" data-id="${escAttr(x.t.id)}" aria-label="Remove task" title="Remove task">✕</button>`:''}</div>`;
+  }).join('');
+  const tests=d.tests.map(x=>{
+    const sc=isScored(x);
+    return `<div class="pl-task t-test ${sc?'done':''}"><span class="pl-mark">✓</span><div class="pl-tt"><b>${escHtml(x.name)}</b><span>${escHtml(x.type||'Test')}${sc?' · scored '+x.scored+' / '+x.total:' · not logged yet'}</span></div></div>`;
+  }).join('');
+  const list=rows+tests;
+  return `<div class="pl-day">
+    <div class="pl-hero">
+      <div class="pl-bigdate"><b>${p[2]}</b><span>${mon}</span></div>
+      <div class="pl-htext"><span class="pl-rel ${past?'past':''}">${plannerRelLabel(date)}</span><h3>${wd}</h3><p>${escHtml(full)} · ${sub}</p>${d.tasks.length?`<div class="pl-prog"><i style="width:${pct}%"></i></div>`:''}</div>
+    </div>
+    <div class="pl-body">
+      ${list?`<div class="pl-tasks">${list}</div>`:`<div class="pl-empty"><b>${past?'No activity this day':'A free day'}</b>${past?'':'Add what you want to study and it will be waiting for you on this date.'}</div>`}
+      ${past?'':`<button type="button" class="pl-addbtn" data-act="plantask" data-date="${date}">＋ Add task for ${date===today?'today':escHtml(mzShortDate(date,true))}</button>`}
+    </div>
+  </div>`;
+}
 function renderPlannerDays(){
-  const p=plannerMonth.split('-').map(Number), days=new Date(Date.UTC(p[0],p[1],0)).getUTCDate(), today=todayISO();
-  const list=[];
-  for(let d=days;d>=1;d--){
-    const date=plannerMonth+'-'+String(d).padStart(2,'0');
-    if(date>today) continue;   // future dates are not shown
-    const x=dayDetail(date);
-    if(x.tasks.length || x.tests.length || date===plannerFocus || date===today) list.push(date);
+  const p=plannerMonth.split('-').map(Number), days=new Date(Date.UTC(p[0],p[1],0)).getUTCDate(), today=todayISO(), sel=plannerSelDate();
+  const NAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  let chips='';
+  for(let d=1;d<=days;d++){
+    const date=plannerMonth+'-'+String(d).padStart(2,'0'), x=dayDetail(date), has=x.tasks.length||x.tests.length;
+    chips+=`<button type="button" class="pl-chip ${date===today?'today':''} ${date<today?'past':''} ${date===sel?'sel':''} ${has?'has':''}" data-act="plpick" data-date="${date}" title="${escAttr(fmtDate(date))}"><small>${NAMES[isoDow(date)]}</small><b>${d}</b><i></i></button>`;
   }
-  return list.map(date=>renderDayCard(date, plannerFocus ? date===plannerFocus : date===today)).join('') || '<p class="sub">No activity this month.</p>';
+  return `<div class="pl-tools">
+      <button type="button" class="btn ghost sm" data-act="plstep" data-d="-1" aria-label="Previous day">‹</button>
+      <button type="button" class="btn ghost sm" data-act="plstep" data-d="1" aria-label="Next day">›</button>
+      <button type="button" class="btn ghost sm" data-act="plpick" data-date="${today}">Today</button>
+      <span class="pl-grow"></span>
+      <label class="field" style="margin:0"><input type="date" id="pl-jump" value="${sel}" aria-label="Jump to date"></label>
+    </div>
+    <div class="pl-strip" id="pl-strip">${chips}</div>
+    ${renderDayPanel(sel)}`;
 }
 function renderPlanner(){
-  const p=plannerMonth.split('-').map(Number);
+  const p=plannerMonth.split('-').map(Number), today=todayISO();
   const first=new Date(Date.UTC(p[0],p[1]-1,1)).getUTCDay(), days=new Date(Date.UTC(p[0],p[1],0)).getUTCDate();
-  let totMs=0, totQ=0, active=0, cells='';
+  let cells='';
   for(let i=0;i<first;i++) cells+='<div class="cal-cell empty"></div>';
   for(let d=1;d<=days;d++){
-    const date=plannerMonth+'-'+String(d).padStart(2,'0'), st=dayStats(date);
-    totMs+=st.ms; totQ+=st.q; if(st.ms>0 || st.done>0) active++;
-    const tests=state.tests.filter(t=>t.date===date);
-    cells+=`<div class="cal-cell clickable ${date===todayISO()?'today':''} ${st.done?'has':''}" data-act="calday" data-date="${date}" role="button" tabindex="0" title="${st.done}/${st.total} tasks done · tap for day details"><b>${d}</b>`+
+    const date=plannerMonth+'-'+String(d).padStart(2,'0'), st=dayStats(date), isFut=date>today;
+    const tasks=dailyTasksForDate(date), tests=state.tests.filter(t=>t.date===date);
+    const dots=tasks.slice(0,6).map(t=>`<i class="t-${dwTypeCls(t)} ${t.done?'dn':''}"></i>`).join('')+(tasks.length>6?'<span>+'+(tasks.length-6)+'</span>':'');
+    cells+=`<div class="cal-cell clickable ${date===today?'today':''} ${isFut?'future':''} ${st.total&&st.done===st.total?'has':''}" data-act="calday" data-date="${date}" role="button" tabindex="0" title="${isFut?st.total+' task'+(st.total===1?'':'s')+' planned · tap to plan':st.done+'/'+st.total+' tasks done · tap for day details'}"><b>${d}</b>`+
+      (dots?`<div class="cal-dots">${dots}</div>`:'')+
       (st.ms?`<span>${ICONS.timer(11)} ${hm(st.ms)}</span>`:'')+(st.q?`<span>${ICONS.pencil(11)} ${st.q} Q</span>`:'')+
       tests.map(t=>`<span class="cal-test">${ICONS.note(11)} ${escHtml(t.name)}</span>`).join('')+`</div>`;
   }
   const label=new Date(Date.UTC(p[0],p[1]-1,1)).toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'});
   return `<div class="card">
-    <div class="cal-head"><button class="btn ghost sm" data-act="calmonth" data-n="-1" aria-label="Previous month">‹</button><h2>${label}</h2><button class="btn ghost sm" data-act="calmonth" data-n="1" aria-label="Next month" ${plannerView==='day' && plannerMonth>=todayISO().slice(0,7)?'disabled':''}>›</button></div>
-    <div class="toggle-group" style="margin-bottom:12px"><button type="button" data-act="plview" data-v="cal" class="${plannerView==='cal'?'active':''}">Calendar</button><button type="button" data-act="plview" data-v="day" class="${plannerView==='day'?'active':''}">Day-wise</button></div>
-    <div class="daily-progress-grid">
-      <div class="daily-metric"><b>${hm(totMs)||'0m'}</b><span>Study time</span></div>
-      <div class="daily-metric"><b>${totQ}</b><span>Questions done</span></div>
-      <div class="daily-metric"><b>${active}</b><span>Study days</span></div>
+    <div class="pl-top">
+      <div class="pl-month"><button type="button" data-act="calmonth" data-n="-1" aria-label="Previous month">‹</button><h2>${label}</h2><button type="button" data-act="calmonth" data-n="1" aria-label="Next month">›</button></div>
+      <div class="pl-seg"><button type="button" data-act="plview" data-v="cal" class="${plannerView==='cal'?'active':''}">Calendar</button><button type="button" data-act="plview" data-v="day" class="${plannerView==='day'?'active':''}">Plan days</button></div>
     </div>
-    ${plannerView==='day' ? `<div class="dw-list-wrap">${renderPlannerDays()}</div>` : `<div class="cal-grid">${WEEKDAYS.map(w=>`<div class="cal-dow">${w.slice(0,3)}</div>`).join('')}${cells}</div>`}
+    ${plannerView==='day' ? renderPlannerDays() : `<div class="cal-grid">${WEEKDAYS.map(w=>`<div class="cal-dow">${w.slice(0,3)}</div>`).join('')}${cells}</div>`}
   </div>`;
 }
 
